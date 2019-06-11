@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html,
+        body,
+        .box {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas></canvas>
+
+    <script>
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        let canvas = document.querySelector("canvas");
+        canvas.width = W;
+        canvas.height = H;
+        let context = canvas.getContext("2d");
+        //确定贝塞尔曲线的点
+        // context.rect(0,250,10,10)
+        // context.rect(600, 300, 10, 10);
+        // context.rect(1300,250,10,10)
+        // context.fillStyle='red';
+
+        context.beginPath();
+        // //用线段绘制成矩形和一个贝塞尔曲线组合成天空
+        context.moveTo(0, 200);
+        context.bezierCurveTo(600, 450, 500, 100, 1386, 200);
+
+        context.stroke();
+
+        let skyStyle = context.createLinearGradient(0, 0, 1386, 200);
+
+        //添加颜色
+        skyStyle.addColorStop(0.0, '#035');
+        skyStyle.addColorStop(0.4, '#036');
+        skyStyle.addColorStop(1.0, 'black');
+        //将skyStyle用于填充展示天空的背景色
+        context.fillStyle = skyStyle;
+
+        context.moveTo(1386, 200);
+        context.lineTo(1386, 0);
+        context.lineTo(0, 0);
+        context.lineTo(0, 200);
+
+        context.fill();
+        context.closePath();
+
+
+        //创造一个星星的函数
+        function start(x, y, R, r, deg, speed) {
+            context.beginPath();
+            for (let i = 0; i < 5; i++) {
+                context.lineTo(Math.cos((18 + 72 * i) / 180 * Math.PI) * R + x, -Math.sin((18 + 72 * i) / 180 * Math
+                    .PI) * R + y);
+                context.lineTo(Math.cos((54 + 72 * i) / 180 * Math.PI) * r + x, -Math.sin((54 + 72 * i) / 180 * Math
+                    .PI) * r + y)
+            }
+            context.fillStyle = 'yellow';
+            //context.rotate(deg);//不加这个属性每个星星都是朝下的
+            context.fill();
+            //context.stroke(); 
+            context.closePath();
+        }
+
+             for (let i = 0; i < 166; i++) {
+                //创造666颗星星
+                let R = Math.floor(Math.random() * 10 + 5);
+                let r = Math.floor(Math.random() * 5 - 2);
+                let x = Math.floor(Math.random() * canvas.width - R);
+                let y = Math.floor(Math.random() * 200 - R);
+                let deg = Math.random() * 360 / 180 * Math.PI;
+                // let x_speed = Math.floor(Math.random() * 10 - 5);
+                // let y_speed = Math.floor(Math.random() * 10 - 5);
+                // x+=x_speed;
+                // y+=y_speed
+                start(x, y, R, r, deg)
+
+             }
+        //画个月亮
+
+        context.beginPath();
+
+
+
+
+
+        // context.arc(1100, 100, 60, 0, Math.PI, false);
+
+        context.strokeStyle = '#ccc';
+        context.moveTo(1100, 80);
+        //外圆
+        context.quadraticCurveTo(1330, 85, 1170, 185);
+        //内圆
+        context.quadraticCurveTo(1400, 80, 1200, 80);
+
+        context.fillStyle = 'yellow';
+        context.fill();
+
+        context.closePath();
+    </script>
+</body>
+
+</html>

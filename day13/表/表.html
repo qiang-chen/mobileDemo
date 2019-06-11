@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        class Pie {
+            constructor() {
+                this.W = window.innerWidth;
+                this.H = window.innerHeight;
+                this.canvas = document.querySelector("canvas");
+                this.context = this.canvas.getContext("2d");
+                requestAnimationFrame(()=>this.init());
+            }
+            init() {
+               
+                this.initPie();
+                this.frame();
+                this.drawScaleW();
+                this. drawScaleH();
+                this.getRole();
+                this.tet();
+                this.title()
+                requestAnimationFrame(()=>this.init());
+            }
+            initPie() {
+                //初始化饼图
+                this.canvas.width = this.W;
+                this.canvas.height = this.H;
+                this.context.translate(this.W / 2, this.H / 2);
+            }
+            frame(){
+                //画表的框架
+                //this.context.save();
+                this.context.beginPath();
+                this.context.arc(0, 0, 200, 0, Math.PI  * 2, false);
+                this.context.strokeStyle="#000";
+                this.context.stroke();
+                this.context.closePath();
+                //this.context.restore();
+            }
+            drawScaleW(){
+                //绘制分刻度
+                for(let i=0;i<60;i++){
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    this.context.arc(0,0,200,0,6*i*Math.PI/180,false);
+                    this.context.closePath();
+                    this.context.stroke();
+                }
+                //绘制白色的内圆把多余的线挡住
+                this.context.beginPath();
+                this.context.arc(0,0,190,0,2*Math.PI,false);
+                this.context.fillStyle="#fff";
+                this.context.fill();
+                this.context.closePath();
+            }
+            drawScaleH(){
+                //绘制时刻度
+                for(let i=0;i<=12;i++){    
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    this.context.arc(0,0,200,0,30*i*Math.PI/180,false);
+                    this.context.closePath();
+                    this.context.lineWidth = 2;
+                    this.context.stroke();   
+                    this.context.strokeStyle = 'red';
+                }
+                this.context.beginPath();
+                this.context.arc(0,0,180,0,2*Math.PI,false);
+                this.context.fillStyle="#fff";
+                this.context.fill();
+                this.context.closePath(); 
+            }
+            getRole(){
+                //三个针的角度
+                let curTime=new Date();
+                let s=curTime.getSeconds();
+                let m=curTime.getMinutes();
+                let h=curTime.getHours();
+                
+                let sr=s/60*360-90;
+                let mr=m/60*360-90;
+                let hr=h/12*360+m/60*30-90;
+                this.drawS(sr,2,165,"#000");
+                this.drawS(mr,3,155,"blue")
+                this.drawS(hr,3.5,145,"green")
+            }
+            drawS(deg,w,l,col){
+                //画秒针
+                this.context.beginPath();
+                this.context.moveTo(0,0);
+                this.context.arc(0, 0, l, deg*Math.PI / 180 , deg*Math.PI / 180 , false);
+                this.context.strokeStyle=col;
+                this.context.lineWidth=w;
+                this.context.stroke();
+                this.context.closePath();
+            }
+            tetCoordinate(){
+                //文字坐标
+                let r=170;
+                let data=[];
+                for(let i=0;i<12;i++){
+                    let x=Math.cos((i*30-60)*Math.PI/180)*r;
+                    let y=Math.sin((i*30-60)*Math.PI/180)*r;
+                    data.push([x,y])
+                }
+                return data;
+            }
+            tet(){
+                this.context.font="20px 微软雅黑";
+                this.context.fillStyle = "orange";
+                this.context.textAlign='center';
+                this.context.textBaseline='middle';
+                
+                this.tetCoordinate().forEach((ele,index)=>{
+                    this.context.beginPath();
+                    this.context.fillText(index+1, ...ele);
+                    this.context.closePath()
+                })
+            }
+            title(){
+                let curTime=new Date();
+                let s=curTime.getSeconds();
+                let m=curTime.getMinutes();
+                let h=curTime.getHours();
+                this.context.font="40px 微软雅黑";
+                this.context.fillStyle = "red";
+                this.context.textAlign='center';
+                this.context.textBaseline='middle';
+                this.context.fillText(`现在是${this.shift(h)}点${this.shift(m)}分${this.shift(s)}秒`, 0,-280);
+            }
+            shift(n){
+                if(n<10){
+                    return "0"+n
+                }else{
+                    return n;
+                }
+            }
+
+        }
+
+        new Pie();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <canvas width="800" height="700"></canvas>
+   <script>
+       let canvas=document.querySelector("canvas");
+
+       let context=canvas.getContext("2d");
+
+    //    context.lineTo(100, 100);
+    //    context.lineTo(200, 200);
+    //    context.stroke();
+
+
+            // context.moveTo(100, 100);
+            // context.lineTo(100, 500);
+            // context.stroke();
+            
+            
+         
+            let grad=context.createLinearGradient(100,100, 200, 100);
+            grad.addColorStop(0, 'red');
+            grad.addColorStop(0.5,"green"),
+            grad.addColorStop(1,"yellow")
+            
+            context.fillStyle=grad;
+            context.fillRect(100,100,200,100);
+               //context.rect(100, 100, 200, 100);
+
+            //context.stroke();
+            
+            
+   </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.header .input, .main .list, .main .list .item, .main .scroll .right .one p, .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 0.98667rem;
+  background-color: #FF852A;
+  display: flex;
+}
+
+.header .logo {
+  flex: 1;
+  background: url("../img/logo.png") no-repeat center;
+  background-size: 100% 100%;
+  transform: scale(0.75);
+}
+
+.header .input {
+  flex: 9;
+}
+
+.header .input input {
+  width: 80%;
+  height: 58%;
+  outline: none;
+  border: 0;
+  border: solid 1px #fff;
+  background-color: #FF4E22;
+  border-radius: 0.16rem;
+}
+
+.header .input .plancehoder {
+  position: absolute;
+  font-size: 14px;
+  color: #F0E0DC;
+}
+
+.main {
+  width: 100%;
+}
+
+.main .banner {
+  width: 100%;
+  height: 3.2rem;
+}
+
+.main .banner .swiper-container,
+.main .banner .swiper-wrapper.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.main .banner img {
+  width: 100%;
+  height: 100%;
+}
+
+.main .banner .swiper-pagination {
+  bottom: 0;
+}
+
+.main .list {
+  width: 100%;
+  height: 4.26667rem;
+  flex-flow: row wrap;
+}
+
+.main .list .item {
+  width: 20%;
+  height: 1.78667rem;
+  font-size: 14px;
+  flex-flow: column wrap;
+}
+
+.main .list .item img {
+  width: 70%;
+  height: 70%;
+}
+
+.main .scroll {
+  width: 100%;
+  height: 1.6rem;
+  display: flex;
+}
+
+.main .scroll .left {
+  width: 35%;
+  height: 1.6rem;
+  background: url("../img/taobaotoutiao.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.main .scroll .box {
+  width: 65%;
+  height: 1.6rem;
+  overflow: hidden;
+}
+
+.main .scroll .right {
+  width: 100%;
+}
+
+.main .scroll .right .one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.05333rem;
+}
+
+.main .scroll .right .one p {
+  font-size: 13px;
+  height: 0.66667rem;
+}
+
+.main .qianggou {
+  width: 100%;
+  margin-top: 0.26667rem;
+}
+
+.main .qianggou ul li {
+  width: 100%;
+  height: 3.06667rem;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.main .qianggou ul li img {
+  width: 25%;
+  height: 3.06667rem;
+}
+
+.footer {
+  width: 100%;
+  height: 1.33333rem;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #f8f8f8;
+  background: #fff;
+  display: flex;
+  flex-flow: row nowrap;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.footer .f-one {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .f-one i {
+  font-size: 28px;
+  color: #5D656B;
+}
+
+.footer .f-one span {
+  font-size: 12px;
+  color: #5D656B;
+}

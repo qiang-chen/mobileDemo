@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- muted 静音播放   autoplay 自动播放  必须加controls才能播放 因为这个是样式   loop代表循坏播放的意思-->
+    <audio src="./梁博 - 男孩 (Live).mp3" controls autoplay muted loop></audio>
+    <video src="../../../note/day08 音频视频/1.mp4" controls></video>
+    <script>
+        let audio = document.querySelector("audio");
+        window.onload = function () {
+            console.log(audio.readyState) // 4 代表加载完成
+            console.log(audio.duration) //视频或者音频的时长
+            audio.currentTime = 100; //从第一百秒的时候开始播放
+            //audio.paused
+            audio.volume = 0.5 //可以获取音量或者设置音量  1是音量滚动条满的最高音 设置成了一半0.5
+            audio.playbackRate=1//播放速度 可以设置也可以获取 1是一倍播放
+            audio.onplay=function(){
+                //每次执行的播放会执行这个方法
+                console.log("开始播放")
+            }
+            audio.onpause=function(){
+                //点击暂停的时候执行
+                console.log("暂停播放")
+            }
+            audio.ongetStartDate=function(e){
+                //不好用
+                console.log(e)
+            }
+            audio.addEventListener("getStartDate",function(e){
+                //不好用
+                console.log(e,"22222")
+            })
+
+            console.log(audio.buffered)//TimeRanges {length: 1} 表示已经缓存的部分的TimeRanges对象
+        }
+    </script>
+</body>
+
+</html>

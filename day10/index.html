@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="700"></canvas>
+    
+    <script>
+        /** @type {HTMLCanvasElement} */
+        let canvas=document.querySelector("canvas");
+        let ctx=canvas.getContext("2d");
+        ctx.arc(300,300,50,0,Math.PI*2,false);
+        ctx.arc(300,300,150,0,Math.PI*2,true);
+        ctx.shadowBlur=20;//阴影的模糊程度
+        ctx.shadowColor="red";//阴影环绕颜色
+        ctx.shadowOffsetX=10;//x 轴的模糊偏移量
+        ctx.shadowOffsetY=10;//y 轴的模糊偏移量
+        ctx.fill()
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: solid 2px;
+            margin: 50px auto;
+            position: relative;
+        }
+        span{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            left: 0;
+            top: 50%;
+            /* transform: translate(0,-50%); */
+            margin-top: -15px;
+            border-radius: 50%;
+            animation: ball 5s linear 0s infinite;
+            transform-origin: 250px center;
+        }
+        b{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: green;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+            margin-right: -30px;
+            border-radius: 50%;
+            animation: ball 5s linear 0s infinite;
+            transform-origin: -250px center;
+        }
+        i{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+            margin-right: 60px;
+            border-radius: 50%;
+            animation: ball 8s linear 0s infinite;
+            transform-origin: -160px center;
+        }
+        p{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: magenta;
+            left: 0;
+            top: 50%;
+            margin-top: -15px;
+            margin-left: 120px;
+            border-radius: 50%;
+            animation: ball 2s linear 0s infinite;
+            transform-origin: 100px center;
+        }
+        @keyframes ball{
+            0%{
+                transform: rotate(0)
+            }
+            100%{
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+        <b></b>
+        <i></i>
+        <p></p>
+    </div>
+</body>
+</html>

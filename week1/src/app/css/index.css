@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header, main .main-title, main .main-title .title-left, main .main-title .title-content, main .main-title .title-content span, main .main-title .title-right, main .list .box .one .two, main .list .box .one .two span, footer .icon i, footer .icon span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 1.33333rem;
+  color: #fff;
+  background: #e54847;
+  border-bottom: 1px solid #e54847;
+}
+
+header h1 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+main .main-title {
+  width: 100%;
+  height: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  color: #666;
+}
+
+main .main-title .title-left {
+  flex: 3;
+}
+
+main .main-title .title-left p {
+  width: 80%;
+  justify-content: center;
+}
+
+main .main-title .title-left i {
+  position: relative;
+  top: 0.08rem;
+  font-size: 14px;
+  color: #666;
+  left: 0.08rem;
+}
+
+main .main-title .title-content {
+  flex: 5;
+  justify-content: space-around;
+  height: 100%;
+}
+
+main .main-title .title-content span {
+  box-sizing: border-box;
+  font-weight: 700;
+  height: 100%;
+  width: 50%;
+}
+
+main .main-title .title-content span.active {
+  color: red;
+  border-bottom: 0.04rem solid red;
+}
+
+main .main-title .title-right {
+  flex: 2;
+}
+
+main .main-title .title-right i {
+  font-size: 18px;
+  color: red;
+  font-weight: 900;
+}
+
+main .list {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 0 0.26667rem;
+}
+
+main .list .box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.26667rem;
+}
+
+main .list .box .img {
+  width: 30%;
+  height: 3.33333rem;
+}
+
+main .list .box .img img {
+  width: 100%;
+  height: 100%;
+}
+
+main .list .box .one {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.26667rem;
+  box-sizing: content-box !important;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #ccc;
+}
+
+main .list .box .one ul {
+  width: 80%;
+}
+
+main .list .box .one ul li {
+  height: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+main .list .box .one ul .o span:nth-child(1) {
+  font-size: 18px;
+  font-weight: 800;
+  margin-right: 0.13333rem;
+}
+
+main .list .box .one ul .o span:nth-child(2) {
+  border: solid skyblue 1px;
+  color: skyblue;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+main .list .box .one ul .o span:nth-child(2) s {
+  text-decoration: none;
+  background: skyblue;
+  color: #fff;
+}
+
+main .list .box .one ul .t {
+  color: #666;
+}
+
+main .list .box .one ul .t span {
+  font-weight: 700;
+  color: #faaf00;
+  font-size: 18px;
+  margin-left: 0.13333rem;
+  margin-top: -0.05333rem;
+}
+
+main .list .box .one ul .three span:nth-child(1) {
+  width: 70%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #666;
+}
+
+main .list .box .one ul .f {
+  color: #666;
+}
+
+main .list .box .one .two {
+  width: 20%;
+  height: 100%;
+}
+
+main .list .box .one .two span {
+  background-color: #f03d37;
+  color: #fff;
+  border-radius: 4px;
+  width: 1.25333rem;
+  height: 0.72rem;
+}
+
+footer {
+  width: 100%;
+  height: 1.28rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-content: center;
+  background: #fff;
+}
+
+footer .icon {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  font-size: 14px;
+}
+
+footer .icon i {
+  font-size: 22px;
+}

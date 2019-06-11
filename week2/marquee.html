@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 30px;
+            border: solid 1px;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+        marquee{
+          
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+        <!-- <marquee direction="down">我是弹幕文字</marquee> -->
+
+        <div class="box">
+                <marquee direction="up" id="one">11111111111</marquee>
+                <marquee direction="up">22222222</marquee>
+                <marquee direction="up">3333333</marquee>
+                <marquee direction="up">44444444</marquee>
+                <marquee direction="up">555555555</marquee>
+        </div>
+        <script>    
+                console.log(one.behavior)
+                one.onclick=function(){
+                    if(this.scrollTop==0){
+                        this.parentNode.removeChild(this)
+                    }
+                }
+        </script>
+</body>
+</html>

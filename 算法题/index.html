@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //求数组中的总和
+        let arr=[1,2,3,4];
+        let a=arr.reduce(function(prev,cur){
+            return prev+cur;
+        });
+        console.log(a);
+
+        //在数组的某一个位置添加一个数  在下标1的地方添加一个“a”
+        let arr1=[1,2,3];
+        let b=arr1.splice(1,0,"a");
+        //splice  万能删除法返回的是删除的哪几项组成的数组
+        console.log(arr1);
+         
+        //统计一个数组中的某一项出现的次数  查找1出现的次数
+        let arr2=[1,2,3,5,2,1,1];
+        let count=0;
+       
+        for(let i=0;i<arr2.length;i++){
+            if(arr2[i]==1){
+                count++;
+            }
+        }
+        console.log(count);
+
+        //求数组中重复出现过的元素
+        let arr3=[1,5,3,6,86,85,2,3,1,1,2,3];
+        let opj={};
+        let str=[];
+        for(let i=0;i<arr3.length;i++){
+            if(opj[arr3[i]]){
+                str.push(arr3[i])
+            }else{
+                opj[arr3[i]]="1";
+            }
+        }
+        let newtr=Array.from(new Set(str))
+        console.log(newtr);
+
+        //求数组的每一项的平方返回一个新的数组
+        let arr4=[1,2,3];
+        let newArr4=[];
+        for(let i=0;i<arr4.length;i++){
+            let a=arr4[i]**2;
+            newArr4.push(a)
+        }
+        console.log(newArr4);
+
+        function FizzBuzz(num){
+            switch(true){
+                case num%3==0:
+                case num%5==0:
+                return "fizzbuzz";
+                break;
+                case num%3==0:
+                return "fizz";
+                break;
+                case num%5==0:
+                return "buzz";
+                break;
+                case num=="":
+                case typeof num!=Number:
+                return false;
+                default :
+                return num;
+                break;
+            }
+        }
+        console.log(FizzBuzz(5))
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%;
+    font-size: 12px;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin setBottomBorder($color: #ccc) {
+    & {
+        position: relative;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: #ccc;
+        transform: scaleY(0.5);
+    }
+}
+
+%juzhong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@function cssToRem($font) {
+    @return $font/37.5px*1rem
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    height: cssToRem(50px);
+    background: #E54847;
+    @extend %juzhong;
+    .mao {
+        font-size: 18px;
+        color: #fff;
+    }
+}
+
+.main {
+    flex: 1;
+    overflow: auto;
+}
+
+.nav {
+    width: 100%;
+    height: cssToRem(44px);
+    display: flex;
+    @extend %juzhong;
+    // background: aqua;
+    @include setBottomBorder(#ccc);
+    .nav1 {
+        flex: 2;
+        span {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        span:nth-child(2) {
+            color: #ccc;
+            font-size: 12px;
+        }
+    }
+    .nav2 {
+        flex: 0.5;
+    }
+    .nav3 {
+        flex: 2;
+        span {
+            font-size: 16px;
+            font-weight: 700;
+            color: red;
+        }
+    }
+    .nav4 {
+        flex: 0.5;
+    }
+    .nav5 {
+        flex: 2;
+        span {
+            font-size: 16px;
+        }
+    }
+    .nav6 {
+        flex: 0.5;
+    }
+    .nav7 {
+        flex: 1;
+        span {
+            font-size: 20px;
+            font-weight: 700;
+            color: red;
+        }
+    }
+}
+
+.movie {
+    .item {
+        width: 100%;
+        height: cssToRem(114px);
+        display: flex;
+        .left {
+            flex: 2;
+            @extend %juzhong;
+            img {
+                width: cssToRem(64px);
+                height: cssToRem(90px);
+            }
+        }
+        .right {
+            width: 100%;
+            align-items: center;
+            flex: 7;
+            display: flex;
+            @include setBottomBorder(#ccc);
+            .introduce {
+                width: 100%;
+                flex: 8;
+                flex-direction: column;
+                justify-content: flex-start;
+                .name {
+                    span {
+                        &:nth-child(1) {
+                            font-size: 18px;
+                        }
+                        &:nth-child(2) {}
+                    }
+                }
+                .guanzhongping {
+                    span {
+                        &:nth-child(1) {
+                            font-size: 16.8px;
+                        }
+                        &:nth-child(2) {
+                            font-size: 16.8px;
+                            color: #f90;
+                        }
+                    }
+                }
+                .zhuyan {
+                    font-size: 14.4px;
+                    width: cssToRem(200px);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .count {
+                    font-size: 14.4px;
+                }
+            }
+            .goupiao {
+                flex: 3;
+                width: 100%;
+                height: 100%;
+                @extend %juzhong;
+                span {
+                    @extend %juzhong;
+                    width: cssToRem(47px);
+                    height: cssToRem(27px);
+                    background: #E54847;
+                    color: #fff;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    height: cssToRem(48px);
+    background: #eee;
+    display: flex;
+}
+
+.footer-item {
+    flex: 1;
+    @extend %juzhong;
+    flex-direction: column;
+    span {
+        &:nth-child(1) {
+            font-size: 18px;
+        }
+        &:nth-child(2) {}
+    }
+}
+
+.footer-item:nth-child(2) {
+    flex: 1;
+    @extend %juzhong;
+    flex-direction: column;
+    span {
+        &:nth-child(1) {
+            font-size: 35px;
+            margin-top: -15px;
+        }
+        &:nth-child(2) {
+            margin-top: -10px;
+        }
+    }
+}
+
+.active {
+    border-bottom: 2px solid red;
+    color: red;
+}

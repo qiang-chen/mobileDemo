@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+@function px2rem($px) {
+    @return $px/37.5px*1rem;
+}
+
+@mixin w_h($w:100%, $h:100%) {
+    width: $w;
+    height: $h;
+}
+
+%juzhong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+
+}
+
+.container {
+    @include w_h;
+}
+
+header {
+    @include w_h(100%, px2rem(50px));
+    color: #fff;
+    background: #06c1ae;
+    display: flex;
+
+    .h-left {
+        flex: 2;
+        @extend %juzhong;
+        margin-left: px2rem(5px);
+
+        span {
+            font-size: 20px;
+        }
+
+        i {
+            margin-top: px2rem(7px);
+            margin-left: px2rem(8px);
+            font-size: 14px;
+        }
+    }
+
+    .h-content {
+        flex: 7;
+        @extend %juzhong;
+        position: relative;
+
+        input {
+            box-sizing: border-box;
+            background: #68dbce;
+            width: 90%;
+            outline: none;
+            border: 0;
+            height: 70%;
+            padding-left: px2rem(30px);
+
+            border-radius: px2rem(8px);
+        }
+
+        ::-webkit-input-placeholder {
+            color: rgb(33, 160, 33);
+        }
+
+        i {
+            position: absolute;
+            left: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .h-right {
+        flex: 1;
+        display: flex;
+        font-size: 14px;
+        flex-flow: column wrap;
+        @extend %juzhong;
+        margin-right: px2rem(5px);
+
+        i {
+            font-size: 24px;
+        }
+    }
+}
+
+main {
+    width: 100%;
+
+    .ban {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+
+        img {
+            width: 100%;
+        }
+    }
+    .swiper-container{
+        .swiper-pagination{
+            bottom: 0;
+        }
+    }
+    .swiper-container,
+    .swiper-wrapper,
+    .swiper-slide {
+        width: 100%;
+        height: px2rem(240px);
+        .list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            @extend %juzhong;
+            width: 100%;
+            height: px2rem(230px);
+
+            .item {
+                @extend %juzhong;
+                font-size: 14px;
+                flex-flow: column wrap;
+                img {
+                    @include w_h(px2rem(70px), px2rem(70px));
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    .like{
+        width: 100%;
+        border-top: px2rem(10px) solid #eee;
+        padding-left: px2rem(8px);
+        .like-top{
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            height: px2rem(45px);
+            line-height: px2rem(45px);
+            font-size: 18px;
+        }
+        .like-list{
+            width: 100%;
+            font-size: 16px;
+            img{
+                width: px2rem(110px);
+                height:px2rem(110px) ;
+            }
+            dl{
+                margin-top: px2rem(9px);
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                box-sizing: border-box;
+                dd{
+                    width: calc(100% - 125px);
+                    height:px2rem(110px);
+                    box-sizing: border-box;
+                    ul{
+                        height: 100%;
+                        display: flex;
+                       flex-direction: column;
+                       align-items: flex-start;
+                       margin-left: px2rem(15px);
+                       box-sizing: border-box;
+                       li{
+                           width: 100%;
+                           display: flex;
+                           align-items: center;
+                           height: 33%;
+                           justify-content:space-between;
+                           .one{
+                            span{
+                                color: #06c1ae;
+                                margin-right: px2rem(5px);
+                                b{
+                                    font-size: 22px;
+                                }
+                            }
+                           }
+                           .two{
+                            color: #666;
+                           }
+                       }
+                       li:nth-child(2){
+                           margin-top: px2rem(-8px);
+                       }
+                    }
+                }
+            }
+        }
+    }
+}

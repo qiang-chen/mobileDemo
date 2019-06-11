@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .canvas {
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="canvas" width="700" height="600"></canvas>
+    <script>
+        let canvas = document.querySelector(".canvas");
+        console.dir(canvas)
+        let ctx = canvas.getContext("2d");
+        let width = canvas.width;
+        let height = canvas.height;
+        console.log(ctx);
+        let arr1 = {
+            x: 0,
+            y: 0,
+            w: 50,
+            h: 50,
+            x_speed: 1,
+            y_speed: 1,
+            color:"pink",
+        }
+        let arr2 = {
+            x: 50,
+            y: 0,
+            w: 50,
+            h: 50,
+            x_speed: 1,
+            y_speed: 2,
+            color:"red"
+        }
+        let arr3 = {
+            x: 15,
+            y: 60,
+            w: 50,
+            h: 50,
+            x_speed: 4,
+            y_speed: 2,
+            color:"green"
+        }
+        let newArr=[arr1,arr2,arr3]
+        setInterval(() => {
+                ctx.clearRect(0, 0, width, height); //清空画布
+                for (let i = 0; i < newArr.length;i++){
+                    ctx.beginPath(); //画布绘制开始
+                    newArr[i].x += newArr[i].x_speed;
+                    newArr[i].y += newArr[i].y_speed;
+                    if (newArr[i].x >= width - newArr[i].w || newArr[i].x <= 0) {
+                        newArr[i].x_speed = -newArr[i].x_speed;
+                    }
+                    if (newArr[i].y >= height - newArr[i].h || newArr[i].y <= 0) {
+                        newArr[i].y_speed = -newArr[i].y_speed;
+                    }
+                    ctx.rect(newArr[i].x, newArr[i].y, newArr[i].w, newArr[i].h); //绘制矩形
+                    ctx.fillStyle = newArr[i].color; //给绘制的矩形添加颜色
+                    ctx.fill();
+                    ctx.closePath(); //画布绘制结束
+        } 
+    }, 10)
+    </script>
+</body>
+
+</html>

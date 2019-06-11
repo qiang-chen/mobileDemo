@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas class="canvas" id="canvas"></canvas>
+    <script>
+        function setPath(cxt) {
+
+            cxt.beginPath();
+            for (var i = 0; i < 5; i++) {
+
+                cxt.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 10,
+
+                    -Math.sin((18 + i * 72) / 180 * Math.PI) * 10
+
+                );
+
+                cxt.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 5,
+
+                    -Math.sin((54 + i * 72) / 180 * Math.PI) * 5
+
+                );
+
+            }
+
+            cxt.closePath();
+
+        }
+
+        function drawStar(cxt, R, x, y, rot) {
+
+            cxt.save();
+
+            cxt.translate(x, y);
+
+            cxt.rotate(rot / 180 * Math.PI);
+
+            cxt.scale(R, R);
+
+            setPath(cxt)
+
+            cxt.fillStyle = "#fb3";
+
+            cxt.fill();
+
+            cxt.restore();
+
+        }
+
+        for (var i = 0; i < 400; i++) {
+
+            var r = Math.random();
+
+            var x = Math.random() * canvas.width;
+
+            var y = Math.random() * canvas.height * 0.6;
+
+            var rot = Math.random() * 360;
+
+            drawStar(context, r, x, y, rot);
+
+        }
+
+        var linearGard = context.createRadialGradient(canvas.width / 2, canvas.height, 0, canvas.width / 2, canvas
+            .height, canvas.height);
+
+        linearGard.addColorStop(1.0, "black");
+
+        linearGard.addColorStop(0.0, "#148EFB");
+
+        context.fillStyle = linearGard;
+
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+
+        function fillMoon(cxt, x1, y1, x2, y2, r, /*option*/ rot, /*option*/ fillColor) {
+
+            cxt.save();
+
+            cxt.beginPath();
+
+            cxt.rotate(rot / 180 * Math.PI); // 创建开始点
+
+            cxt.arc(x1, y1, r, 0.5 * Math.PI, 1.5 * Math.PI, true);
+
+            cxt.moveTo(x1, y1 - r);
+
+            cxt.arcTo(x2, y2, x1, y1 + r, dis(r, x2 - x1)); // 创建弧
+
+            cxt.fillStyle = fillColor || "#fb3";
+
+            cxt.fill();
+
+            cxt.restore();
+
+        }
+
+        function drawLand(cxt) {
+
+            cxt.save();
+
+            cxt.beginPath();
+
+            cxt.moveTo(0, 600);
+
+            cxt.bezierCurveTo(540, 400, 660, 800, 1430, 600);
+
+            cxt.lineTo(1430, 800);
+
+            cxt.lineTo(0, 800);
+
+            cxt.closePath();
+            var landStyle = cxt.createLinearGradient(0, 800, 0, 0);
+
+            landStyle.addColorStop(0, "#030");
+
+            landStyle.addColorStop(1, "#580");
+
+            cxt.fillStyle = landStyle;
+
+            cxt.fill();
+
+            cxt.restore();
+
+        }
+
+        CXT.save();
+
+    CXT.font="bold 20px Georgia";
+
+    CXT.fillStyle="#fff";
+
+    CXT.fillText("Canvas文字绘制",200,650);
+
+    CXT.fillText("——海上月_天上月",500,700);
+
+    CXT.restore();
+
+
+    </script>
+</body>
+
+</html>

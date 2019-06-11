@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="700"></canvas>
+    <script>
+        let ctx=canvas.getContext("2d");
+        
+        let x1=100;
+        let y1=100;
+        let x2=200;
+        let y2=250;
+        let x3=150;
+        let y3=50;
+
+        ctx.bezierCurveTo(x1,y1,x2,y2,x3,y3);
+        console.log(ctx);
+        ctx.stroke()
+        ctx.fillRect(x1,y1,10,10)
+        ctx.fillRect(x2,y2,10,10)
+        ctx.fillRect(x3,y3,10,10)
+    </script>
+</body>
+</html>

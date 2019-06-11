@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas></canvas>
+
+    <script>
+        let canvas = document.querySelector("canvas");
+
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        console.log(W, H)
+        canvas.width = W;
+        canvas.height = H;
+        let context = canvas.getContext("2d");
+        //38.8% 占一个圆的几份  
+        //17.73 占一个圆的几份
+        //28.29% 占一个圆的几份
+        //15.18占一个圆的几份
+
+        //把一个圆分成一百分的话 一份是3.6度
+
+        function yuan(r, deg1, deg2, col, dire) {
+            context.save();
+            context.beginPath();
+            context.moveTo(W / 2, H / 2);
+            context.arc(W / 2, H / 2, r, deg1, deg2, dire);
+            context.fillStyle = col;
+            context.fill();
+            context.closePath();
+            context.restore();
+        }
+
+        yuan(150, 0, 0.388 * 360 * Math.PI / 180, "green", false)
+
+        yuan(100, 0.388 * 360 * Math.PI / 180, 0.5653 * 360 * Math.PI / 180, "red", false);
+
+        yuan(130, 0.5653 * 360 * Math.PI / 180, 0.8482 * 360 * Math.PI / 180, "yellow", false)
+
+        yuan(80,0.8482 * 360 * Math.PI / 180, Math.PI*2, "pink", false)
+    </script>
+
+</body>
+
+</html>

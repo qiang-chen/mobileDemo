@@ -1,0 +1,494 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+
+html {
+  font-size: 13.333333vw;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+header .h_left, header .h_left span, header .h_mid, header .h_right, header .h_right span, main .list, main .list .item, main .list .item i, main .list .item span, main .tui .t-title, main .tui .t-nav, main .tui .t-nav span, main .tui .content .box .one, main .tui .content .box .two, main .tui .content .box .two span, main .tui .content .box .three, main .tui .zi, main .tui .zi span, main .tui .mudi, main .tui .mudi i, main .hot, main .h-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 1rem;
+  display: flex;
+}
+
+header .h_left {
+  flex: 3;
+}
+
+header .h_left span {
+  width: 40%;
+  height: 100%;
+  color: #383838;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+
+header .h_left span:nth-child(2) {
+  width: 60%;
+}
+
+header .h_left span:nth-child(1) {
+  background: url("../img/logo-2x.png") no-repeat center;
+  background-size: 60% 60%;
+}
+
+header .h_left span a {
+  color: #383838;
+  font-size: 0.32rem;
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+header .h_left span i {
+  font-size: 0.18rem;
+  position: relative;
+  top: 0.06rem;
+  width: 50%;
+  text-align: center;
+  margin-right: 0.2rem;
+}
+
+header .h_mid {
+  flex: 4;
+  position: relative;
+}
+
+header .h_mid input {
+  box-sizing: border-box;
+  width: 100%;
+  border: solid 0.02rem #ccc;
+  background: #F2F2F2;
+  height: 0.6rem;
+  border-radius: 2rem;
+  padding-left: 0.6rem;
+  outline: none;
+}
+
+header .h_mid input::placeholder {
+  color: #ADAEBE;
+}
+
+header .h_mid i {
+  position: absolute;
+  left: 0.2rem;
+  font-size: 0.30rem;
+  color: #ADAEBE;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header .h_right {
+  flex: 3;
+  font-size: 0.32rem;
+}
+
+header .h_right span {
+  width: 40%;
+}
+
+header .h_right span:nth-child(2) {
+  width: 60%;
+}
+
+header .h_right span a {
+  font-size: 0.32rem;
+  display: inline-block;
+  text-align: center;
+  margin-right: 0.1rem;
+}
+
+header .h_right span i {
+  font-size: 0.18rem;
+  position: relative;
+  top: 0.06rem;
+  margin-right: 0.2rem;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+  overflow: auto;
+}
+
+main .banner {
+  width: 100%;
+  height: 1.5rem;
+}
+
+main .banner .swiper-container, main .banner .swiper-wrapper, main .banner .swiper-slide, main .banner img {
+  width: 100%;
+  height: 100%;
+}
+
+main .img {
+  width: 100%;
+  padding: 0 0.06rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+main .img .top {
+  width: 100%;
+  height: calc(2.88rem/3*2);
+  display: flex;
+  margin-top: 0.1rem;
+}
+
+main .img .top .img-left {
+  width: calc(100%/3);
+  height: 100%;
+}
+
+main .img .top .img-left img {
+  width: 100%;
+  height: 100%;
+}
+
+main .img .top .img-right {
+  width: calc(100%/3*2);
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 0.02rem;
+}
+
+main .img .top .img-right img {
+  width: 50%;
+  height: 50%;
+}
+
+main .img .bottom {
+  width: 100%;
+  height: calc(2.88rem/3);
+  display: flex;
+  margin-top: 0.02rem;
+}
+
+main .img .bottom img {
+  width: calc(100%/3);
+  flex: 1;
+}
+
+main .img .o {
+  margin-top: 0.1rem;
+}
+
+main .list {
+  width: 100%;
+  height: calc(1.26rem*2);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+main .list .item {
+  width: 20%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+main .list .item i {
+  width: 0.64rem;
+  height: 0.64rem;
+  display: inline-block;
+  background: url("../img/1.png") no-repeat center;
+  background-size: cover;
+}
+
+main .list .item:nth-child(2) i {
+  background: url("../img/2.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(3) i {
+  background: url("../img/3.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(5) i {
+  background: url("../img/5.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(6) i {
+  background: url("../img/6.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(7) i {
+  background: url("../img/7.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(8) i {
+  background: url("../img/8.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(9) i {
+  background: url("../img/6.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item:nth-child(10) i {
+  background: url("../img/9.png") no-repeat;
+  background-size: cover;
+}
+
+main .list .item span {
+  font-size: 0.24rem;
+  width: 100%;
+}
+
+main .xian {
+  width: 100%;
+  height: 0.16rem;
+  background-color: #ccc;
+}
+
+main .x {
+  width: 100%;
+  height: calc(1.07rem*2);
+  display: flex;
+}
+
+main .x .x-left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+main .x .x-left .l1 {
+  width: 50%;
+}
+
+main .x .x-left .l1 img {
+  width: 100%;
+  height: 100%;
+}
+
+main .x .x-left .l2 {
+  font-size: 0.24rem;
+  box-sizing: border-box;
+  padding-left: 0.13rem;
+  padding-top: 0.12rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main .x .x-left .l2 p {
+  color: #222;
+  flex: 1;
+}
+
+main .x .x-left .l2 p:nth-child(2) {
+  color: orange;
+  font-size: 0.28rem;
+}
+
+main .x .x-left .l2 p:nth-child(3) span {
+  background: orange;
+  color: #fff;
+}
+
+main .x .x-left .l2 p:nth-child(4) span {
+  background: #4a4c5b;
+  color: #fff;
+  padding: 0.04rem;
+}
+
+main .x .x-right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+main .x .x-right .r1, main .x .x-right .r2 {
+  width: 50%;
+}
+
+main .x .x-right .r1 img, main .x .x-right .r2 img {
+  width: 100%;
+  height: 100%;
+}
+
+main .tui {
+  width: 100%;
+}
+
+main .tui .t-title {
+  width: 100%;
+  height: 1rem;
+  font-size: 0.32rem;
+  font-weight: bold;
+}
+
+main .tui .t-title::before {
+  content: "";
+  width: 0.2rem;
+  height: 0.02rem;
+  background: #878787;
+  margin-right: 0.2rem;
+}
+
+main .tui .t-title::after {
+  content: "";
+  width: 0.2rem;
+  height: 0.02rem;
+  background: #878787;
+  margin-left: 0.2rem;
+}
+
+main .tui .t-nav {
+  width: 100%;
+  height: 0.6rem;
+}
+
+main .tui .t-nav span {
+  height: 100%;
+  flex: 1;
+  font-size: 0.30rem;
+  border-bottom: 0.02rem solid #ccc;
+}
+
+main .tui .t-nav span:nth-child(1) {
+  border-bottom: 0.04rem solid green;
+}
+
+main .tui .content {
+  width: 100%;
+  display: flex;
+  margin-top: 0.2rem;
+  justify-content: space-around;
+}
+
+main .tui .content .box {
+  flex: 1;
+}
+
+main .tui .content .box .one {
+  width: 100%;
+  height: calc(0.8rem*2);
+  justify-content: space-around;
+}
+
+main .tui .content .box .one img {
+  width: calc(1.09rem*2);
+  height: 100%;
+}
+
+main .tui .content .box .two {
+  width: 100%;
+  height: calc(0.21rem*2);
+  font-size: 0.28rem;
+}
+
+main .tui .content .box .two span {
+  font-size: 0.28rem;
+  font-weight: bold;
+}
+
+main .tui .content .box .three {
+  width: 100%;
+  height: calc(0.18rem*2);
+  font-size: 0.24rem;
+}
+
+main .tui .zi {
+  width: 100%;
+  flex-flow: row wrap;
+  margin-top: 0.1rem;
+}
+
+main .tui .zi span {
+  width: calc(100%/3);
+  height: calc(0.38rem*2);
+  font-size: 0.28rem;
+  border: solid 0.02rem #eee;
+  box-sizing: border-box;
+}
+
+main .tui .mudi {
+  width: 100%;
+  height: 0.96rem;
+  font-size: 0.30rem;
+}
+
+main .tui .mudi span {
+  color: green;
+}
+
+main .tui .mudi i {
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-left: 0.1rem;
+  border-radius: 50%;
+  border: solid 0.02rem green;
+  color: green;
+  position: relative;
+  top: 0.05rem;
+}
+
+main .hot {
+  width: 100%;
+  height: 1rem;
+  font-weight: bold;
+}
+
+main .hot span {
+  font-size: 0.32rem;
+}
+
+main .hot::before {
+  content: "";
+  width: 0.2rem;
+  height: 0.02rem;
+  background: #878787;
+  margin-right: 0.2rem;
+}
+
+main .hot::after {
+  content: "";
+  width: 0.2rem;
+  height: 0.02rem;
+  background: #878787;
+  margin-left: 0.2rem;
+}
+
+main .h-list {
+  flex-flow: row wrap;
+  width: 100%;
+  height: calc(1.72rem*2);
+}
+
+main .h-list img {
+  width: calc(0.81rem*2);
+  height: calc(0.81rem*2);
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #el {
+            width: 700px;
+            height: 500px;
+        }
+        
+        canvas {
+            border: 1px solid lightcoral
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="el">
+
+    </div>
+    <script src="./data/data1.js"></script>
+    <script>
+        function DrawPie(option) {
+            Object.assign(this, option)
+        }
+
+
+        DrawPie.prototype = {
+            init() {
+                this.creatDom()
+
+
+                this.drawCircle()
+
+            },
+            creatDom() {
+                let $canvas = document.createElement("canvas")
+                let $el = document.querySelector(this.el)
+                $canvas.style.margin = "10px"
+                this.ctxW = $el.clientWidth - 20
+                this.ctxH = $el.clientHeight - 20
+                $canvas.width = this.ctxW
+                $canvas.height = this.ctxH
+                $el.appendChild($canvas)
+                this.context = $canvas.getContext("2d")
+            },
+            dataHandle(num) {
+                let allNum = 0
+                let current = 0
+                this.data.series.forEach((i, index) => {
+                    allNum += i.data
+                    if (index <= num) {
+                        current += i.data
+                    }
+                })
+                return (current / allNum * 360) * Math.PI / 180
+            },
+
+            getLinePoint(index) {
+                let data = []
+                let preT = this.dataHandle(index - 1)
+                let currentT = this.dataHandle(index)
+               
+                let RT = (currentT - preT) / 2 + preT
+                    // console.log(RT)
+                let y1 = Math.sin(RT) * this.r
+                let x1 = Math.cos(RT) * this.r
+                console.log(x1, y1)
+                if (y1 > 0) {
+                    y2 = y1 + 10
+                    y3 = y2
+                } else {
+                    y2 = y1 - 10
+                    y3 = y2
+                }
+                if (x1 > 0) {
+                    x2 = x1 + 10
+                    x3 = x1 + 30
+                } else {
+                    x2 = x1 - 10
+                    x3 = x1 - 30
+                }
+
+                return [
+                    [x1, y1],
+                    [x2, y2],
+                    [x3, y3]
+                ]
+            },
+            drawLine(data) {
+                this.context.beginPath()
+                data.forEach((i, index) => {
+                    if (index == 0) {
+                        this.context.moveTo(...i)
+                    } else {
+                        this.context.lineTo(...i)
+                    }
+                })
+                this.context.stroke()
+
+            },
+            drawText(data, text) {
+                this.context.beginPath()
+                this.context.font = "30px"
+                this.context.fillStyle = "black"
+                this.context.textBaseline = 'middle';
+
+                if (data[0] > 0) {
+                    this.context.textAlign = 'left';
+
+                } else {
+                    this.context.textAlign = 'right';
+                }
+                this.context.fillText(text, ...data);
+
+                this.context.stroke()
+            },
+            drawCircle() {
+                this.context.translate(this.ctxW / 2, this.ctxH / 2);
+                this.data.series.forEach((i, index) => {
+                    this.drawLine(this.getLinePoint(index))
+                    this.drawText(this.getLinePoint(index)[2], i.name)
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    if (index == 0) {
+                        this.context.arc(0, 0, this.r, 0, this.dataHandle(index))
+                    } else {
+                        this.context.arc(0, 0, this.r, this.dataHandle(index - 1), this.dataHandle(index))
+                    }
+                    this.context.fillStyle = i.color;
+                    this.context.fill();
+                    this.context.closePath();
+                });
+
+            }
+        }
+
+        var obj = new DrawPie({
+            el: "#el",
+            data: option,
+            r: 100,
+            padding: [80, 100, 50, 50] //l,t,r,b
+        })
+        obj.init()
+    </script>
+</body>
+
+</html>

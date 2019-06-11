@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            font-size: calc(100/750*100vw);
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            width: 100%;
+            height: 1rem;
+            font-size: 0.32rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 0.02rem solid #666;
+        }
+
+        .nav {
+            width: 100%;
+            height: 2.4rem;
+            border-bottom: 0.02rem solid #eee;
+            background: #fff;
+        }
+
+        .n-t {
+            width: 100%;
+            height: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .n-b {
+            width: 100%;
+            height: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 90%;
+            height: 80%;
+            border: solid 0.02rem #ccc;
+        }
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+            font-size: 0.32rem;
+        }
+
+        .list {
+            width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            height: 2.2rem;
+            padding: 0 0.2rem;
+            box-sizing: border-box;
+            display: flex;
+            margin-top: 0.2rem;
+        }
+
+        .left {
+            width: 2.2rem;
+            height: 2.2rem;
+            background-color: magenta;
+        }
+
+        .right {
+            width: calc(100% - 2.2rem);
+            height: 100%;
+            background: mediumseagreen;
+        }
+        .filxed{
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>京东租房</header>
+        <main>
+
+            <div class="nav">
+                <div class="n-t">
+                    <input type="text">
+                </div>
+                <div class="n-b">
+                    <span>位置</span>
+                    <span>位置</span>
+                    <span>位置</span>
+                    <span>位置</span>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    
+    let nav=document.querySelector(".nav");
+    let navT=nav.offsetTop;
+    
+    let container=document.querySelector(".container");
+
+    document.body.onscroll=function(){
+        let t=document.documentElement.scrollTop;
+        if(t>navT){
+            nav.classList.add("filxed");
+        }else{
+            nav.classList.remove("filxed");
+        }
+    }
+    
+    </script>
+</body>
+
+</html>

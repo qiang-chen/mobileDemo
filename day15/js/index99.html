@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../swiper.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            font-size: calc(100/750*100vw)
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            height: 1rem;
+            background: red;
+        }
+
+        main {
+            flex: 1;
+            overflow: hidden;
+        }
+        .nav{
+            width: 100%;
+            height: 1rem;
+            display: flex;
+        }
+        .nav span{
+            flex: 1;
+            font-size: 0.32rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 25%;
+        }
+        .banner {
+            width: 100%;
+            height: 3.2rem;
+            background-color: magenta;
+        }
+
+        .swiper-container,
+        .swiper-wrapper,
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+
+        .list {
+            width: 100%;
+            height: calc(100% - 3.2rem);
+            overflow: hidden;
+        }
+
+        .wrap {
+            width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            height: 2rem;
+            background: mediumseagreen;
+            border: solid 1px #ccc;
+        }
+
+        footer {
+            width: 100%;
+            height: 1.2rem;
+            background: pink;
+        }
+
+        .load {
+            width: 100%;
+            height: 0.8rem;
+            background: #ccc;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header></header>
+        <main>
+            <div class="nav">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </div>
+            <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">1</div>
+                        <div class="swiper-slide">2</div>
+                        <div class="swiper-slide">3</div>
+                        <div class="swiper-slide">4</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="list">
+
+
+                <div class="wrap">
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="item">
+                        1
+                    </div>
+                    <div class="load">
+                        正在加载中....
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </main>
+        <footer></footer>
+    </div>
+</body>
+<script src="./bscroll.js"></script>
+<script src="./swiper.min.js"></script>
+<script>
+
+
+
+
+    let swiper = new Swiper(".swiper-container", {
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false
+        }
+    })
+
+
+
+    let wrap = document.querySelector(".wrap");
+
+
+    // let bs = new BScroll(".list", {
+    //     pullUpLoad: true
+    // })
+
+    // bs.on("pullingUp", function () {
+    //     let arr = [];
+    //     setTimeout(() => {
+
+    //         for (let i = 0; i < 8; i++) {
+    //             arr.push(Math.random() * 100)
+    //         }
+
+
+
+    //         if (arr.length != 0) {
+    //         let str=arr.map(item=>{
+    //             return `<div class="item">
+    //                     ${item}
+    //                 </div>`
+    //         }).join("");
+    //         let load=document.querySelector(".load");
+    //         let clone=load.cloneNode(true)
+    //         wrap.removeChild(load);
+    //         wrap.innerHTML+=str;
+    //         wrap.appendChild(clone)
+    //         bs.finishPullUp();
+    //         bs.refresh()
+    //     }
+
+
+
+
+    //     }, 3000);
+
+
+    // })
+
+
+
+</script>
+
+</html>

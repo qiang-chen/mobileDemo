@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: solid 1px;
+            
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="700"></canvas>
+    <script>
+        let ctx=canvas.getContext("2d");
+        ctx.arc(200,200,100,0,Math.PI*2/4,false);
+        ctx.stroke()
+    </script>
+</body>
+</html>

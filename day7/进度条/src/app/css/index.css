@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.box .top, .box .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 600px;
+  height: 250px;
+  border: solid 1px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.box .top {
+  flex: 6;
+  background: pink;
+  flex-direction: column;
+}
+
+.box .top .bar {
+  width: 500px;
+  height: 15px;
+  border-radius: 10px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.box .top .bar .color {
+  height: 15px;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: red;
+}
+
+.box .top .bar .colorBg {
+  background-color: #ccc;
+}
+
+.box .top .bar .ball1 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: green;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.box .top .bar .ball1 span {
+  position: absolute;
+  left: 9px;
+  top: -31px;
+  width: 61px;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  background: #ccc;
+}
+
+.box .top .bar .ball2 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: green;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+}
+
+.box .top .bar .ball2 span {
+  position: absolute;
+  left: 9px;
+  top: -31px;
+  width: 61px;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  background: #ccc;
+}
+
+.box .top .bar .active {
+  width: 7px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.box .top .bg {
+  background-color: yellow;
+}
+
+.box .top .num {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.box .top .num span:nth-child(1), .box .top .num span:nth-child(6), .box .top .num span:nth-child(11), .box .top .num span:nth-child(16), .box .top .num span:nth-child(21) {
+  font-size: 22px;
+}
+
+.box .top .money {
+  width: 500px;
+  display: flex;
+}
+
+.box .top .money span {
+  display: flex;
+  width: 20%;
+}
+
+.box .top .money span:nth-child(1) {
+  justify-content: flex-start;
+  padding-left: 7px;
+  box-sizing: border-box;
+}
+
+.box .top .money span:nth-child(2) {
+  justify-content: center;
+  padding-right: 18px;
+  box-sizing: border-box;
+}
+
+.box .top .money span:nth-child(3) {
+  justify-content: center;
+  padding-left: 12px;
+}
+
+.box .top .money span:nth-child(4) {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.box .top .money span:nth-child(5) {
+  justify-content: flex-end;
+}
+
+.box .bottom {
+  flex: 4;
+}
+
+.box .bottom select {
+  width: 150px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-left: 32%;
+}

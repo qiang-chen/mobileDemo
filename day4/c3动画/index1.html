@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: green;
+            margin: 100px;
+            /* transition-duration: 5s;
+            transition-delay: 1s; */
+            position: relative;
+            left: 0;
+            top: 0;
+            /* transition-timing-function: ease; */
+            /* transition: all 5s 1s linear; */
+            animation: move;
+            animation-delay: 1s;
+            animation-duration: 5s;
+            animation-direction:alternate;
+            animation-iteration-count: infinite;
+            /* 倒着执行 */
+            /* animation-direction:alternate-reverse; */
+            /* animation-fill-mode: backwards; */
+        }
+        /* .box:hover{
+            left: 1000px;
+        } */
+
+        @keyframes move{
+            form{
+                left: 0;
+            }
+            to{
+                left: 800px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

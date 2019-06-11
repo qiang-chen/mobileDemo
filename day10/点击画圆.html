@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+
+        let canvas = document.querySelector("canvas");
+        canvas.width = W;
+        canvas.height = H;
+        let context = canvas.getContext("2d");
+
+        canvas.onclick = function (e) {
+            let x = e.clientX;
+            let y = e.clientY;
+            let r= Math.random() * 20 + 50;
+            let c=`rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+            ball(x, y,r,c)
+        }
+
+        //绘制随机圆
+
+        function ball(x, y,r,c) {
+       
+            let degEnd = 0;
+            let degStart=0;
+           
+            let timer = setInterval(function () {
+                context.beginPath();
+                context.moveTo(x, y);
+                degEnd += Math.PI/180;
+                if (degEnd > Math.PI*2) {
+                    clearInterval(timer)
+                }
+                
+                context.arc(x, y,r, degStart, degEnd, false);
+                
+                // context.strokeStyle=c;
+                // context.stroke();
+                context.fillStyle = c;
+                context.fill();
+                context.closePath();
+                degStart=degEnd;
+            }, 10)
+
+        }
+    </script>
+</body>
+
+</html>

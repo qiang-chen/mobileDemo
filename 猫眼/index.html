@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/flexible.js"></script>
+    <link rel="stylesheet" href="./libs/swiper.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./scss/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="mao">猫眼电影</div>
+        </header>
+
+        <main class="main">
+            <div class="nav">
+                <div class="nav1">
+                    <span>上海</span><span class="iconfont icon-triangle-down"></span>
+                </div>
+                <div class="nav2"></div>
+                <div class="nav3">
+                    <span>正在上映</span>
+                </div>
+                <div class="nav4"></div>
+                <div class="nav5">
+                    <span>即将上映</span>
+                </div>
+                <div class="nav6"></div>
+                <div class="nav7">
+                    <span class="iconfont icon-fangdajing "></span>
+                </div>
+            </div>
+
+            <div class="movie">
+                <!-- <div class="item">
+                    <div class="left">
+                        <img src="./猫眼电影_files/034069fc367db8a7d9644717b416cc2c332883.jpg" alt="">
+                    </div>
+                    <div class="right">
+                        <div class="introduce">
+                            <div class="name">
+                                <span>惊奇队长</span><span></span>
+                            </div>
+                            <div class="guanzhongping">
+                                <span>观众评</span> <span> 8.7</span>
+                            </div>
+                            <div class="zhuyan">那句话</div>
+                            <div class="count">场数</div>
+                        </div>
+                        <div class="goupiao">
+                            <span>购票</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-item">
+                <span class="iconfont icon-zixun"></span>
+                <span>电影</span>
+            </div>
+            <div class="footer-item">
+                <span class="iconfont icon-101"></span>
+                <span>影院</span>
+            </div>
+            <div class="footer-item">
+                <span class="iconfont icon-yonghu"></span>
+                <span>我的</span>
+            </div>
+
+        </footer>
+    </div>
+    <script>
+        let movie = document.querySelector(".movie")
+
+        function ajax(opts) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", opts.url, true)
+            xhr.send()
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    opts.callback(JSON.parse(xhr.responseText))
+                }
+            }
+        }
+        ajax({
+            url: "index.json",
+            callback: function(data) {
+                data.movieList.map(function(item) {
+                    // console.log(item)
+                    var div = document.createElement("div")
+                    div.innerHTML += `<div class="item">
+                    <div class="left">
+                        <img src="./猫眼电影_files/${item.img}" alt="">
+                    </div>
+                    <div class="right">
+                        <div class="introduce">
+                            <div class="name">
+                                <span>${item.nm}</span><span>${item.version}</span>
+                            </div>
+                            <div class="guanzhongping">
+                                <span>观众评</span> <span> ${item.sc}</span>
+                            </div>
+                            <div class="zhuyan">主演:${item.star}</div>
+                            <div class="count">${item.showInfo}</div>
+                        </div>
+                        <div class="goupiao">
+                            <span>购票</span>
+                        </div>
+                    </div>
+                </div>`
+                    movie.appendChild(div)
+                })
+            }
+        })
+
+
+        let container = document.querySelector(".container")
+        container.addEventListener("click", (ev) => {
+            var e = ev || event;
+            var tag = e.target || e.srcElement;
+            if (tag.className == "nav" && tag.tagName == "SPAN") {
+                if (tag.innerHTML == "正在上映" && !tag.classList.container("active")) {
+                    tag.classList.add("active")
+                    tag.nextElementSibling.nextElementSibling.classList.remove("active")
+
+                } else if (tag.innerHTML == "即将上映" && !tag.classList.container("active")) {
+                    tag.classList.add("active")
+                    tag.preventElementSibling.preventElementSibling.classList.remove("active")
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

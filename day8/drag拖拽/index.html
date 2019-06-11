@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            height: 600px;
+            background-color: #eee;
+            border: solid 1px #ccc;
+            margin: 0px auto;
+        }
+        .small{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            flex-flow: row wrap;
+            margin: 20px auto;
+        }
+        .small_one{
+            width:22%;
+            height: 60px;
+            background-color: pink;
+            margin: 10px 10px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 25px;
+        }
+        .big{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            flex-flow: row wrap;
+           margin: 0 auto;
+        }
+        .big_one{
+            width: 30%;
+            height: 80px;
+            background-color: lightgreen;
+            margin: 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="small">
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+            <div class="small_one" draggable="true"></div>
+        </div>
+        <div class="big">
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+            <div class="big_one"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let small=document.querySelectorAll(".small .small_one");
+
+    let big=document.querySelectorAll(".big_one");
+
+    let arr=[];
+
+    while(arr.length<9){
+        let random=Math.ceil(Math.random()*9);
+        if(arr.indexOf(random)==-1){
+            small[arr.length].classList.add("n"+random);
+            small[arr.length].innerText=random;
+            small[arr.length].ondragstart=function(e){
+                //给每个小盒子添加拖拽事件存进他们的class名字
+                e.dataTransfer.setData("el",this.innerText);
+            }
+            arr.push(random);
+        }
+    }
+
+    big.forEach((item,index)=>{
+        item.ondragover=function(e){
+            //再悬浮状态下取消默认行为
+            e.preventDefault()
+        }
+
+        item.ondrop=function(e){
+            let el=e.dataTransfer.getData("el");
+            let Dom=document.querySelector(".n"+el);
+            if(index==el-1){
+                item.appendChild(Dom)
+            }
+        }
+    })
+</script>
+</html>

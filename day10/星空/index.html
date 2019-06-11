@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector("canvas");
+        canvas.width = 1400;
+        canvas.height = 700;
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0, 510)
+        var x1 = 500;
+        var y1 = 680;
+        var x2 = 930;
+        var y2 = 250;
+        var x3 = 1400;
+        var y3 = 510;
+        
+        ctx.bezierCurveTo(x1, y1, x2, y2, x3, y3);
+        ctx.stroke()
+        ctx.moveTo(x3, y3);
+        ctx.lineTo(1400, 700);
+        ctx.lineTo(0, 700);
+        ctx.lineTo(0, 510)
+        ctx.fillStyle = 'green';
+        ctx.fill();
+        ctx.closePath();
+
+        function star(x, y, r1, r2, col) {
+            ctx.beginPath();
+            for (var i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + 72 * i) / 180 * Math.PI) * r1 + x, -Math.sin((18 + 72 * i) / 180 * Math.PI) * r1 + y)
+                ctx.lineTo(Math.cos((54 + 72 * i) / 180 * Math.PI) * r2 + x, -Math.sin((54 + 72 * i) / 180 * Math.PI) * r2 + y)
+            }
+            ctx.closePath();
+            ctx.fillStyle = col;
+            ctx.fill();
+        }
+        // star(10, 20, 5, 3, 'yellow')
+        // star(1000, 100, 5, 3, 'yellow')
+        // star(1200, 100, 5, 3, 'yellow')
+        // star(900, 110, 5, 3, 'yellow')
+        // star(850, 120, 5, 3, 'yellow')
+        // star(700, 130, 5, 3, 'yellow')
+        // star(600, 120, 5, 3, 'yellow')
+        // star(500, 200, 5, 3, 'yellow')
+        // star(400, 150, 5, 3, 'yellow')
+        // star(10, 10, 5, 3, 'yellow')
+        // star(5, 20, 5, 3, 'yellow')
+        // star(10, 5, 5, 3, 'yellow')
+        // star(1010, 20, 5, 3, 'yellow')
+        for (var i = 0; i < 300; i++) {
+            var xs = Math.floor(Math.random() * (1400 - 1 + 1) - 1);
+            var ys = Math.floor(Math.random() * (270 - 1 + 1) - 1);
+            var size = Math.floor(Math.random() * (8 - 2 + 1) - 2)
+            var small = Math.floor(Math.random() * (3 - 1 + 1) - 2)
+            star(xs, ys, size, small, 'yellow')
+        }
+        ctx.beginPath();
+        ctx.arc(130, 130, 100, 30, 170, true);
+        ctx.strokeStyle = "yellow"
+        ctx.stroke();
+        ctx.beginPath();
+        var yueX1 = 145,
+            yueY1 = 29,
+            yueX2 = 10,
+            yueY2 = 170,
+            yueX3 = 225,
+            yueY3 = 164
+        ctx.bezierCurveTo(yueX1, yueY1, yueX2, yueY2, yueX3, yueY3);
+        // ctx.fillRect(yueX1, yueY1, 10, 10)
+        // ctx.fillRect(yueX2, yueY2, 10, 10)
+        // ctx.fillRect(yueX3, yueY3, 10, 10)
+        ctx.strokeStyle = "yellow"
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

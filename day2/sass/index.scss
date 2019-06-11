@@ -1,0 +1,34 @@
+//混合宏
+@mixin win ($w){
+    width: $w;
+}
+//函数
+@function bg($w){
+    @return $w
+}
+
+%font{
+    font-size: 30px;
+}
+.box1{
+    @include win(30px);
+    height: 30px;
+    border: solid 1px;
+    @extend %font;
+
+}
+.box2{
+    background: pink;
+    @extend .box1;
+}
+@mixin hover($box) {
+    #{$box}:hover{
+        background: green;
+    }
+}
+
+@include hover(".box3");
+.box3{
+    @extend .box1;
+   
+}

@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header, header span, header .enter, header .input, main .icon, main .icon .icon-item, main .scroll .s-content p, main .scroll .s-right, main .seckill-title, main .seckill-count, main .seckill-count .seckill-count-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 1.17333rem;
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
+header span {
+  flex: 1.5;
+  height: 100%;
+  font-size: 33px !important;
+  color: #fff;
+}
+
+header .enter {
+  flex: 1.5;
+  font-size: 18px;
+  color: #fff;
+  height: 100%;
+}
+
+header .input {
+  flex: 7;
+  height: 100%;
+  position: relative;
+}
+
+header .input input {
+  box-sizing: border-box;
+  width: 80%;
+  height: 60%;
+  border: 0;
+  outline: none;
+  padding-left: 0.85333rem;
+  border-radius: 0 0.26667rem 0.26667rem 0;
+}
+
+header .input i {
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+header .input small {
+  width: 15%;
+  height: 60%;
+  background: url("../img/jd.png") no-repeat center;
+  background-color: #fff;
+  background-size: 70% 70%;
+  border-radius: 0.26667rem 0 0 0.26667rem;
+}
+
+header.active {
+  background-color: red;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+main .box {
+  width: 100%;
+}
+
+main .banner {
+  width: 100%;
+  height: 4.88rem;
+}
+
+main .banner .swiper-pagination {
+  bottom: 0;
+}
+
+main .banner .swiper-container,
+main .banner .swiper-wrapper,
+main .banner .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+main .banner .swiper-container img,
+main .banner .swiper-wrapper img,
+main .banner .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+main .icon {
+  width: 100%;
+  height: 4.32rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+main .icon .icon-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+main .icon img {
+  width: 1.06667rem;
+  height: 1.06667rem;
+}
+
+main .scroll {
+  width: 100%;
+  height: 0.8rem;
+  display: flex;
+  margin-top: 0.13333rem;
+}
+
+main .scroll .s-left {
+  flex: 2;
+  background: url("../img/bao.png") no-repeat;
+  background-size: 100% 100%;
+  margin-left: 0.4rem;
+}
+
+main .scroll .s-content {
+  flex: 6;
+  overflow: hidden;
+}
+
+main .scroll .s-content p {
+  width: 100%;
+  font-size: 14px;
+  height: 0.8rem;
+}
+
+main .scroll .s-right {
+  flex: 2;
+  font-size: 18px;
+  margin-right: 0rem;
+}
+
+main .new {
+  width: 100%;
+  height: 3.2rem;
+  display: flex;
+  margin-top: 0.4rem;
+}
+
+main .new .new-one {
+  width: 50%;
+  background: url("../img/new.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+main .new .new-two {
+  width: 25%;
+  background: url("../img/new2.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+main .new .new-three {
+  width: 25%;
+  background: url("../img/new3.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+main .seckill {
+  width: 100%;
+}
+
+main .seckill-title {
+  width: 100%;
+  height: 0.93333rem;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+main .seckill-title span:nth-child(1) a:nth-child(1) {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 0.13333rem;
+  color: red;
+}
+
+main .seckill-title span:nth-child(1) a:nth-child(2) {
+  font-weight: 700;
+  margin-right: 0.13333rem;
+  color: #000;
+}
+
+main .seckill-title span:nth-child(1) a:nth-child(3) {
+  font-weight: 700;
+  margin-right: 0.13333rem;
+  color: #666;
+}
+
+main .seckill-title span:nth-child(1) a {
+  text-decoration: none;
+  height: 100%;
+  display: inline-block;
+  padding-top: -0.05333rem;
+}
+
+main .seckill-title span:nth-child(2) {
+  font-size: 13px;
+  color: red;
+}
+
+main .seckill-title span:nth-child(2) a {
+  color: red;
+  text-decoration: none;
+}
+
+main .seckill-count {
+  margin-top: 0.53333rem;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+main .seckill-count .seckill-count-one {
+  flex-direction: column;
+}
+
+main .seckill-count span {
+  font-size: 20px;
+  color: red;
+}
+
+main .seckill-count s {
+  font-size: 12px;
+}
+
+main .seckill-count img {
+  width: 1.86667rem;
+  height: 1.86667rem;
+}
+
+main .ban {
+  width: 100%;
+  height: 3.06667rem;
+  background: url("../img/b.png") no-repeat;
+  background-size: cover;
+  margin-top: 0.26667rem;
+}
+
+main .dong {
+  width: 100%;
+  height: 0.93333rem;
+  background: url("../img/d.png") no-repeat;
+  background-size: 100% 100%;
+  margin-top: 0.26667rem;
+}

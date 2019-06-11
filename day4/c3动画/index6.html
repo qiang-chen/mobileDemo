@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+       
+            margin: 50px auto;
+        }
+        .big{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: solid 2px;
+            
+            margin: 150px auto;
+            animation: big 2s linear 0s infinite alternate;
+           
+        }
+        .small{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: solid 1px red;
+            
+            margin: 50px auto;
+           
+            animation: small 2s linear 0s infinite alternate;
+        }
+        @keyframes big{
+            0%{
+                transform: scale(0.5);
+                border: solid 1px rgba(0, 0, 0, .6);
+            }
+            25%{
+                transform: scale(1)
+            }
+            50%{
+                transform: scale(1.5)
+            }
+            75%{
+                transform: scale(2)
+            }
+            100%{
+                transform: scale(2.5);
+                border: solid 2px;
+            }
+        }
+        @keyframes small{
+            0%{
+                transform: scale(0.8);
+                border: solid 2px red;
+            }
+            25%{
+                transform: scale(1)
+            }
+            50%{
+                transform: scale(1.2)
+            }
+            75%{
+                transform: scale(1.4)
+            }
+            100%{
+                transform: scale(1.6);
+                border: solid 1px rgb(218, 44, 44);
+            }
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="big">
+            <div class="small"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

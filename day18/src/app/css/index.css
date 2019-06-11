@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrap .box .b-top, .wrap .box .b-top .t1 span,
+.wrap .box .b-top .t2 span, .wrap .box .form .f-one .o-left, .wrap .box .form .f-one .o-right, .wrap .container header .h-b, .wrap .container header .h-b b, .wrap .container main .content .date, .wrap .container main .content .date span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  font-size: calc(100 / 750 * 100vw);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  position: relative;
+}
+
+.wrap .top {
+  width: 100%;
+  height: 3.6rem;
+  background: url("https://p0.meituan.net/hotelnoah/7dd2a3a1-5b95-4a96-b4ae-40440fde9b54.png.webp") no-repeat;
+  background-size: 100% 100%;
+}
+
+.wrap .box {
+  position: absolute;
+  width: 90%;
+  background-color: #fff;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 0.30rem;
+}
+
+.wrap .box .b-top {
+  width: 100%;
+  height: 1.1rem;
+  box-sizing: border-box;
+  border-bottom: 0.02rem solid #ccc;
+  position: relative;
+}
+
+.wrap .box .b-top .t1,
+.wrap .box .b-top .t2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wrap .box .b-top .t1 span,
+.wrap .box .b-top .t2 span {
+  width: 90%;
+  height: 100%;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+
+.wrap .box .b-top .t2 {
+  display: flex;
+  justify-content: flex-start;
+  border-left: 0.02rem solid #ccc;
+}
+
+.wrap .box .b-top .border {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  border-radius: .06rem;
+  height: .1rem;
+  width: calc(50%*0.9);
+  background-color: #06c1ae;
+  transition: all 0.4s linear;
+}
+
+.wrap .box .form {
+  box-sizing: border-box;
+  padding: 0 .1rem;
+  margin-top: 0.2rem;
+}
+
+.wrap .box .form .f-one {
+  width: 100%;
+  height: 1.1rem;
+  display: flex;
+}
+
+.wrap .box .form .f-one .o-left {
+  flex: 2;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-left: 0.1rem;
+  color: #666;
+}
+
+.wrap .box .form .f-one .o-right {
+  flex: 8;
+  font-size: 0.32rem;
+  justify-content: flex-start;
+  padding-left: 0.1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.wrap .box .form .f-one .o-right i {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  font-style: normal;
+  color: #999;
+  font-size: 0.36rem;
+  font-weight: bolder;
+}
+
+.wrap .box .form .f-one:nth-child(2) {
+  height: 1.5rem;
+}
+
+.wrap .box .form .f-one:nth-child(2) .o-right {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p .active {
+  height: 100%;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p p {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0.1rem;
+  box-sizing: border-box;
+  height: 50%;
+  align-items: center;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p p span:nth-child(1) {
+  margin-right: 0.2rem;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p p span:nth-child(2) {
+  font-size: 0.28rem;
+  color: #666;
+}
+
+.wrap .box .form .f-one:nth-child(2) .p p span:nth-child(3) {
+  font-size: 0.28rem;
+  color: #666;
+}
+
+.wrap .box .form .two {
+  width: 90%;
+  height: 1.12rem;
+  border-color: #2bb2a3;
+  color: #fff;
+  margin: 0.1rem auto;
+}
+
+.wrap .box .form .two button {
+  width: 100%;
+  height: 100%;
+  background: #2bb2a3;
+  border: 0;
+  color: #fff;
+  font-size: 0.34rem;
+  border-radius: 0.1rem;
+}
+
+.wrap .mask {
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.wrap .container {
+  font-size: 0.30rem;
+  transition: all 0.5s ease-in;
+  height: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 0.1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.wrap .container header {
+  width: 100%;
+  height: 1.5rem;
+}
+
+.wrap .container header .h-t {
+  width: 100%;
+  height: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.38rem;
+  color: #666;
+}
+
+.wrap .container header .h-t .h-right {
+  color: #f9504c;
+  border: .02rem solid #f9504c;
+  border-radius: .06rem;
+  padding: .08rem .18rem;
+}
+
+.wrap .container header .h-b {
+  width: 100%;
+  height: 0.6rem;
+  color: #666;
+}
+
+.wrap .container header .h-b b {
+  flex: 1;
+}
+
+.wrap .container header .h-b b:first-child {
+  color: #fa967f;
+}
+
+.wrap .container header .h-b b:last-child {
+  color: #fa967f;
+}
+
+.wrap .container main {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+}
+
+.wrap .container main .content {
+  width: 100%;
+}
+
+.wrap .container main .content .title {
+  width: 100%;
+  background: #fafafa;
+  text-align: center;
+  height: .6rem;
+  line-height: .6rem;
+}
+
+.wrap .container main .content .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #d9d9d9;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+}
+
+.wrap .container main .content .date {
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.wrap .container main .content .date span {
+  width: calc(100%/7);
+  height: 1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.wrap .container main .content .date span.active {
+  color: #fff;
+  background: #f9504c;
+  border-radius: .06rem;
+  font-size: 0.36rem;
+  text-align: center;
+}
+
+.wrap .container main .content .date span.f {
+  background-color: pink;
+}

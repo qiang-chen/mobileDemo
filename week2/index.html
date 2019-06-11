@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./flexible.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="left">
+                左边
+            </div>
+            <div class="left">
+                中间
+            </div>
+            <div class="left">
+                右边
+            </div>
+        </header>
+        <main>
+            <div class="nav">
+                <span>一号</span>
+                <span>二号</span>
+                <span>三号</span>
+                <span>四号</span>
+            </div>
+            <div class="box">
+                <div class="banner">
+                    <div class="slide one"></div>
+                    <div class="slide two"></div>
+                    <div class="slide three"></div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+                <div class="item">
+                    <i></i>
+                    <span>小球</span>
+                </div>
+            </div>
+            <div class="title">
+                我是一个标题喽
+            </div>
+            <div class="content">
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+                <div class="one">
+                    <div class="one-left"></div>
+                    <div class="one-right"></div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="bottom">
+                <span>首页</span>
+                <span>切换</span>
+                <span>城市</span>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    let box = document.querySelector(".box");
+    let banner = document.querySelector(".banner");
+    let slide = document.querySelectorAll(".slide");
+    let index = 1;
+    box.addEventListener("touchstart", Touch);
+    box.addEventListener("touchmove", Touch);
+    box.addEventListener("touchend", Touch);
+
+    function Touch(e) {
+        console.log(e)
+        switch (e.type) {
+            case "touchstart":
+                box.start = {
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY
+                }
+                break;
+            case "touchmove":
+                box.end = {
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY
+                }
+                break;
+            case "touchend":
+            if(box.end){
+                if (box.end.y - box.start.y < 50) {
+                    if (box.end.x - box.start.x < 0) {
+                        index++;
+                        if (index > slide.length - 1) {
+                            index = slide.length - 1
+                        }
+                        banner.style.transform = `translateX(-${index*box.offsetWidth}px)`
+                    } else {
+                        index--;
+                        if (index < 0) {
+                            index = 0
+                        }
+                        banner.style.transform = `translateX(-${index*box.offsetWidth}px)`
+                    }
+                }}
+                break;
+        }
+    }
+
+
+    const title=document.querySelector(".title");
+    const main=document.querySelector("main");
+    const content=document.querySelector(".content");
+    let h=title.offsetTop;
+    main.addEventListener("scroll",function(){
+        let t=this.scrollTop;
+        
+        //console.log(t,(h-50))
+        if(t>(h-50)){
+            title.classList.add("fixed")
+        }else{
+            title.classList.remove("fixed")
+        }
+    })
+</script>
+
+</html>

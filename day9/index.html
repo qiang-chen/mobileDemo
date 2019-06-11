@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vw布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            /* 把整个屏幕分成100份 */
+            /* 然后 100/750*100  其中750指的是二倍图 */
+            /* 下面高度用rem布局  像素除上对应的100 就是对应的rem */
+            font-size: 13.333333vw;
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header{
+            width: 100%;
+            height: 1rem;
+            background: pink;
+        }
+        main{
+            
+           
+            flex: 1;
+        }
+        footer{
+            height: 0.4rem;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <header></header>
+       <main></main>
+       <footer></footer>
+   </div>
+</body>
+</html>

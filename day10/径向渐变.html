@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="800" height="700"></canvas>
+    <script>
+        let canvas = document.querySelector("canvas");
+        let context = canvas.getContext("2d");
+        context.arc(250, 250, 100, 0, Math.PI * 2, false);
+        let grad = context.createRadialGradient(250, 250, 15, 250, 250, 100);
+        grad.addColorStop(0, 'red');
+        grad.addColorStop(1, "yellow")
+        context.fillStyle = grad;
+        context.fill();
+    </script>
+</body>
+
+</html>

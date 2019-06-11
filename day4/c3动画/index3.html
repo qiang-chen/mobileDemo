@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: solid 1px;
+            position: fixed;
+            transform: translate(-50%,0);
+            left: 50%;
+            bottom: 10px;
+        }
+        span{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: red;
+            display: inline-block;
+            animation: fill 2s linear 0s infinite;
+        }
+        span:nth-child(2){
+            position: absolute;
+            left: 60px;
+            bottom: 0;
+            animation-delay: 1s;
+        }
+        span:nth-child(3){
+            position: absolute;
+            left: 100px;
+            bottom: 0;
+            animation-delay: 0.5s;
+        }
+        @keyframes fill{
+            from{
+                bottom: 0;
+            }
+            to{
+                bottom: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

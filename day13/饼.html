@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector("canvas");
+
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        console.log(W, H)
+        canvas.width = W;
+        canvas.height = H;
+
+        let context = canvas.getContext("2d");
+
+        let arr = [{
+                name: '周一',
+                color: "red",
+                data: 8,
+            },
+            {
+                name: '周二',
+                color: "green",
+                data: 11,
+            },
+            {
+                name: '周三',
+                color: "lightgreen",
+                data: 15,
+            },
+            {
+                name: '周四',
+                color: "lightgray",
+                data: 4,
+            },
+            {
+                name: '周五',
+                color: "yellow",
+                data: 2,
+            },
+            {
+                name: '周六',
+                color: "pink",
+                data: 6,
+            }, {
+                name: '周日',
+                color: "blue",
+                data: 13,
+            }
+        ]
+
+
+        function deg(index) {
+            let sum = 0;
+            let curSum = 0;
+            arr.forEach((item, i) => {
+                sum += item.data;
+                if (index >= i) {
+                    curSum += item.data;
+                }
+            });
+            return curSum / sum * 360 * Math.PI / 180;
+        }
+
+        roge()
+
+        function roge() {
+
+            for (let i = 0; i < arr.length; i++) {
+                context.beginPath();
+                    context.moveTo(W/2, H/2);
+                    
+                    context.arc(W/2, H/2, 170, deg(i-1), deg(i), false);
+                    context.fillStyle=arr[i].color;
+                context.fill();
+                context.closePath();
+
+                let pre=deg(i-1);
+                let cur=deg(i)-pre;
+                let x=Math.cos(cur/2+pre)*200+W/2;
+                let y=Math.sin(cur/2+pre)*200+H/2;
+                console.log(x,y)
+                context.fillRect(x,y,10,10);
+                context.fill();
+                
+                
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

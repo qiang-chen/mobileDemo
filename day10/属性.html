@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="1400" height="700"></canvas>
+    <script>
+        let canvas=document.querySelector("canvas");
+
+        let context=canvas.getContext("2d");
+        
+        context.beginPath();
+
+        context.globalCompositeOperation='source-over';
+        context.fillStyle='green';
+        
+        context.fillRect(100,100,200,160);
+        
+        context.lineTo(350, 130);
+
+        context.lineTo(170,300);
+        context.lineTo(400,300);
+        context.closePath();
+        
+        context.stroke();
+        
+        context.fillStyle='red';
+        context.fill();
+        //source-over | copy | destination-in | destination-out | destination-over | lighter | source-atop | source-in | source-out | xor
+       
+        context.closePath();
+        
+    </script>
+</body>
+</html>

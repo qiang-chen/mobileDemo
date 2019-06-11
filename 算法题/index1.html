@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var twoSum = function (nums, target) {
+            let arr = [];
+            for (let i = 0; i < nums.length; i++) {
+                let a = target - nums[i];
+                nums.forEach((item, index) => {
+                    if (a == item) {
+                        if (i != index) {
+                            arr.push(i, index);
+                            arr.splice(2, 2)
+                        }
+
+                    }
+                })
+            }
+            return arr;
+        };
+
+        console.log(twoSum([1, 8, 3], 4))
+    </script>
+</body>
+
+</html>

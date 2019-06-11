@@ -1,0 +1,129 @@
+[{
+    "no": "01",
+    "name": "摩登兄弟 - 走马（Cover：陈粒）",
+    "singer": "刘宇宁",
+    "src": "./app/music/摩登兄弟 - 走马（Cover：陈粒）.mp3",
+    "zhuanJi": "摩登兄弟",
+    "size": "9.17MB",
+    "length": "03:58",
+    "caozuo": "❤"
+},
+{
+    "no": "02",
+    "name": "那英 - 春暖花开",
+    "singer": "那英",
+    "src": "./app/music/那英 - 春暖花开.mp3",
+    "zhuanJi": "2013蛇年春晚",
+    "size": "8.45MB",
+    "length": "03:36",
+    "caozuo": "❤"
+}, {
+    "no": "03",
+    "name": "王菲 - 传奇",
+    "singer": "王菲",
+    "src": "./app/music/王菲 - 传奇.mp3",
+    "zhuanJi": "传奇",
+    "size": "11.3MB",
+    "length": "04:56",
+    "caozuo": "❤"
+}, {
+    "no": "04",
+    "name": "王力宏 - 大城小爱",
+    "singer": "王力宏",
+    "src": "./app/music/王力宏 - 大城小爱.mp3",
+    "zhuanJi": "盖世英雄",
+    "size": "8.79MB",
+    "length": "03:44",
+    "caozuo": "❤"
+}, {
+    "no": "05",
+    "name": "王力宏 - 就是现在",
+    "singer": "王力宏",
+    "src": "./app/music/王力宏 - 就是现在.mp3",
+    "zhuanJi": "就是现在",
+    "size": "10.5MB",
+    "length": "04:30",
+    "caozuo": "❤"
+}, {
+    "no": "06",
+    "name": "王力宏 - 我们的歌",
+    "singer": "王力宏",
+    "src": "./app/music/王力宏 - 我们的歌.mp3",
+    "zhuanJi": "改变自己",
+    "size": "9.64MB",
+    "length": "04:07",
+    "caozuo": "❤"
+}, {
+    "no": "07",
+    "name": "王力宏 - 心中的日月",
+    "singer": "王力宏",
+    "src": "./app/music//王力宏 - 心中的日月.mp3",
+    "zhuanJi": "心中的日月",
+    "size": "9.23MB",
+    "length": "03:57",
+    "caozuo": "❤"
+}, {
+    "no": "08",
+    "name": "王力宏 - 依然爱你",
+    "singer": "王力宏",
+    "src": "./app/music/王力宏 - 依然爱你.mp3",
+    "zhuanJi": "火力全开",
+    "size": "9.60MB",
+    "length": "04:06",
+    "caozuo": "❤"
+}, {
+    "no": "09",
+    "name": "张雪飞 - 走心小卖家",
+    "singer": "张雪飞",
+    "src": "./app/music/张雪飞 - 走心小卖家.mp3",
+    "zhuanJi": "走心小卖家",
+    "size": "8.91MB",
+    "length": "03:40",
+    "caozuo": "❤"
+}, {
+    "no": "10",
+    "name": "周笔畅 - 最美的期待",
+    "singer": "周笔畅",
+    "src": "./app/music/周笔畅 - 最美的期待.mp3",
+    "zhuanJi": "最美的期待",
+    "size": "8.25MB",
+    "length": "03:30",
+    "caozuo": "❤"
+}, {
+    "no": "11",
+    "name": "赵世聪 - 纸短情长（Cover 烟把儿）",
+    "singer": "赵世聪",
+    "src": "./app/music/赵世聪 - 纸短情长（Cover 烟把儿）.mp3",
+    "zhuanJi": "纸短情长",
+    "size": "10.3MB",
+    "length": "04:29",
+    "caozuo": "❤"
+}, {
+    "no": "12",
+    "name": "赵雷 - 南方姑娘",
+    "singer": "赵雷",
+    "src": "./app/music/赵雷 - 南方姑娘.mp3",
+    "zhuanJi": "赵小雷",
+    "size": "12.9MB",
+    "length": "05:34",
+    "caozuo": "❤"
+}, {
+    "no": "13",
+    "name": "赵雷 - 成都",
+    "singer": "赵雷",
+    "src": "./app/music/赵雷 - 成都.mp3",
+    "zhuanJi": "成都",
+    "size": "12.8MB",
+    "length": "05:28",
+    "caozuo": "❤"
+}, {
+    "no": "14",
+    "name": "张信哲 - 爱如潮水",
+    "singer": "张信哲",
+    "src": "./app/music/张信哲 - 爱如潮水.mp3",
+    "zhuanJi": "张信哲精选",
+    "size": "11.5MB",
+    "length": "04:32",
+    "caozuo": "❤"
+}
+]

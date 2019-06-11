@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 150px auto;
+            text-align: center;
+        }
+        input{
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            border: solid 1px #000;
+            outline: none;
+            animation: move 2s ease-out 1s 1;
+            animation-fill-mode: forwards;
+            animation-play-state:paused;
+            position: absolute;
+            left: 50%;
+            
+        }
+        @keyframes move{
+            form{
+                /* width: 30px; */
+            }
+            to{
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text">
+    </div>
+</body>
+<script>
+    let input=document.querySelector("input");
+    input.onfocus=function(){
+        console.log(1)
+        input.style.animationPlayState="running";
+    }
+</script>
+</html>

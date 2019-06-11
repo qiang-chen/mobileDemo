@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas width="800" height="500"></canvas>
+    </div>
+</body>
+<script>
+    let canvas = document.querySelector("canvas");
+
+    let context = canvas.getContext("2d");
+    context.beginPath();
+    // context.rect(0, 0, 10, 10);
+    // context.rect(400,150,10,10);
+    // context.rect(790,0,10,10);
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    // context.bezierCurveTo(0, 0, 400, 350, 790, 0);
+    // context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    context.rect(0, 0, 800, 150)
+
+    let grad = context.createLinearGradient(0, 0, 190, 0);
+    grad.addColorStop(0, "rgba(0,0,0,.7)");
+    grad.addColorStop(0.5, "rgba(0,0,0,.6)");
+    grad.addColorStop(1, "rgba(0,0,0,.8)");
+    context.fillStyle = grad;
+    context.fill();
+    context.closePath();
+
+
+    let arr = [];
+    for (let i = 0; i < 66; i++) {
+        let start = {
+            x: Math.ceil(Math.random() * 800),
+            y: Math.ceil(Math.random(), 150),
+            br: Math.ceil(Math.random() * 30),
+            sr: Math.ceil(Math.random() * 12)
+        }
+        arr.push(start)
+    }
+    
+    setInterval(()=>{
+
+        
+        context.beginPath();
+        context.clearRect(0, 0, 800, 150);
+        for(let i=0;i<arr.length;i++){
+            for(let i=0;i<5;i++){
+             context.lineTo(Math.cos((18+72*i)/180*Math.PI)*arr[i].br+arr[i].x,-Math.sin((18+72*i)/180*Math.PI)*arr[i].br+arr[i].y,);
+             context.lineTo(Math.cos((54+72*i)/180*Math.PI)*arr[i].sr+arr[i].x,-Math.sin((54+72*i)/180*Math.PI)*arr[i]+arr[i].y)
+            }
+            context.fillStyle="yellow";
+        context.fill();
+        }
+        
+        context.closePath();
+        
+    },10)
+</script>
+
+</html>

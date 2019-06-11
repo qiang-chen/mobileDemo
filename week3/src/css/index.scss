@@ -1,0 +1,312 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+%juzhong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+html{
+    font-size: 13.333333vw;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+header{
+    height: 1rem;
+    width: 100%;
+    background: #eee;
+    
+    @extend %juzhong;
+    .h-left{
+        font-size: 38px;
+        flex:1;
+        @extend %juzhong;
+        height: 100%;
+    }
+    .h-content{
+        flex: 7.5;
+        @extend %juzhong;
+        font-size: 30px;
+        height: 100%;
+    }
+    .h-right{
+        flex: 1.5;
+        @extend %juzhong;
+        height: 100%;
+        margin-right: 10px;
+        span{
+            width: 50%;
+            height: 100%;
+            @extend %juzhong;
+            i{
+                width: 80%;
+                height: 50%;
+                border-radius: 50%;
+                display: inline-block;
+                background: pink;
+            }
+        }
+    }
+}
+
+main{
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    .box{
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-container,.swiper-wrapper{
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide{
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .nav{
+        width: 100%;
+        height: 1.2rem;
+        font-size: 20px;
+        display: flex;
+        box-sizing: border-box;
+        span{
+            width: 20%;
+            height: 100%;
+            @extend %juzhong;
+            box-sizing: border-box;
+            border-bottom: 1px solid #666;
+        }
+        .active{
+            color: red;
+            border-bottom: 2px solid red;
+        }
+    }
+
+    .ball{
+        width: 100%;
+        height: 4rem;
+       position: relative;
+       .canvas-font{
+      
+           position: absolute;
+           top: 2.8rem;
+           width: 100%;
+           height: 0%;
+           @extend %juzhong;
+           flex-direction: column;
+           p{
+               font-size: 18px;
+                margin: 0.04rem 0;
+
+                span{
+                    width: 1.6rem;
+                    height: 0.6rem;
+                    background-color: orange;
+                    border-radius: 0.3rem;
+                    @extend %juzhong;
+                    color: #fff;
+                }
+           }
+           p:nth-child(2){
+               font-size: 30px;
+           }
+
+       }
+    }
+    .ball-title{
+        width: 100%;
+        height: 0.8rem;
+        border-bottom: 1px solid #ccc;
+        @extend %juzhong;
+        justify-content:space-around;
+        margin-top: 0.2rem;
+        span{
+            font-size: 14px;
+            color: #666;
+            width: 24%;
+            @extend %juzhong;
+        }
+        span:nth-child(4){
+            color: blue;
+        }
+    }
+    .ji{
+        width: 100%;
+        height: 1.2rem;
+        @extend %juzhong;
+        span{
+            width: 50%;
+            @extend %juzhong;
+            font-size: 18px;
+            color: #ccc;
+            &:nth-child(1){
+                border-right: 1px solid #666;
+            }
+        }
+    }
+    .xian{
+        width: 100%;
+        height: 0.2rem;
+        background-color: #eee;
+    }
+    .logo{
+        width: 100%;
+        font-size: 22px;
+        height: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        p{
+            height: 0.8rem;
+            @extend %juzhong;
+            justify-content: flex-start;
+            margin-left: 0.4rem;
+            color: green;
+            &:nth-child(2){
+                font-size: 20px;
+                color: #000;
+            }
+        }
+    }
+    .title{
+        width: 100%;
+        height: 1.2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        span{
+            font-size: 18px;
+            padding-left: 0.3rem;
+            border-left: 0.1rem solid orange;
+            margin-left: 0.07rem;
+        }
+    }
+    .list{
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        @extend %juzhong;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        .item{
+            width: 33%;
+            height: 2rem;
+            display: flex;
+            justify-content: space-around;
+            span{
+                width: 90%;
+                height: 80%;
+                @extend %juzhong;
+                background:lightgreen;
+                font-size: 22px;
+                color: #fff;
+            }
+        }
+    }
+
+    .toutiao{
+        width: 100%;
+        .toutiao-title{
+            width: 100%;
+            height: 1rem;
+            border-bottom: 0.02rem solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span{
+                font-size: 20px;
+                &:nth-child(1){
+                    padding-left: 0.2rem;
+                    border-left: 0.1rem solid orange;
+                    margin-left: 0.04rem;
+                }
+                &:nth-child(2){
+                    font-size: 18px;
+                    color: #666;
+                    margin-right: 0.2rem;
+                }
+            }
+        }
+        .list2{
+            width: 100%;
+            .item2{
+                width: 100%;
+                height: 2rem;
+                padding: 0.5rem 0.2rem;
+               
+         
+                display: flex;
+                .item-left{
+                    width: 70%;
+                    height: 100%;
+                    border-bottom: 0.02rem solid #999;
+                    p{
+                        font-size: 24px;
+                        width: 100%;
+                        height: 50%;
+                        @extend %juzhong;
+                        justify-content: flex-start;
+                        &:nth-child(2){
+                            font-size: 20px;
+                            color: #999
+                        }
+                    }
+                }
+                .item-right{
+                    width: 30%;
+                    border-bottom: 0.02rem solid #999;
+                    @extend %juzhong;
+                    span{
+                        @extend %juzhong;
+                        width: 100%;
+                        height: 90%;
+                        background-color: mediumorchid;
+                        margin: 0.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .yanse{
+        width: 100%;
+        height: 7rem;
+        background-color: aquamarine;
+    }
+    .y{
+        width: 100%;
+        height: 7rem;
+        background-color: red;
+    }
+    .ya{
+        width: 100%;
+        height: 7rem;
+        background-color: mediumorchid;
+    }
+    .yan{
+        width: 100%;
+        height: 7rem;
+        background-color: midnightblue;
+    }
+}
+footer{
+    height: 1.2rem;
+    width: 100%;
+    background: pink;
+}
+

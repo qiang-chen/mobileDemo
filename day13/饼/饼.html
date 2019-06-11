@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script src="./data/data1.js"></script>
+    <script>
+        class Pie {
+            constructor() {
+                this.W = window.innerWidth;
+                this.H = window.innerHeight;
+                this.canvas = document.querySelector("canvas");
+                this.context = this.canvas.getContext("2d");
+                this.data = option.series;
+                this.init();
+            }
+            init() {
+
+               
+
+
+                this.initPie();
+                this.round();
+
+                 //画个坐标
+                 this.context.beginPath();
+                this.context.moveTo(0, 400);
+                this.context.lineTo(0, -400);
+                this.context.stroke();
+
+                this.context.closePath();
+                this.context.beginPath();
+
+                this.context.moveTo(400, 0);
+                this.context.lineTo(-400, 0);
+                this.context.stroke();
+                this.context.closePath();
+                this.hua();
+            }
+            initPie() {
+                //初始化饼图
+                this.canvas.width = this.W;
+                this.canvas.height = this.H;
+                this.context.translate(this.W / 2, this.H / 2);
+
+            }
+            radian(index) {
+                //求每一份扇形的弧度
+                let sum = 0; //总数
+                let curSum = 0; //当前数
+                this.data.forEach((item, i) => {
+                    sum += item.data;
+                    if (index >= i) {
+                        curSum += item.data;
+                    }
+                });
+                return curSum / sum * 360 * Math.PI / 180
+            }
+            round() {
+                //画圆
+                this.data.forEach((ele, index) => {
+                    let pre = this.radian(index - 1); //起始弧度
+                    let end = this.radian(index); //结束弧度
+
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    this.context.arc(0, 0, 190, pre, end, false);
+                    this.context.fillStyle = ele.color;
+                    this.context.fill();
+                    this.context.closePath();
+                    
+                    this.line(end, pre);
+                })
+            }
+            line(end, pre) { //画线
+                let cur = (end - pre) / 2 + pre; //当前扇形所在一半的点所对应的弧度
+
+                let x1 = Math.cos(cur) * 200;
+                let y1 = Math.sin(cur) * 200;
+                //console.log(x1, y1)
+
+                //this.context.fillRect(x1,y1,10,10);
+
+
+                let x2,y2,x3,y3;//新点坐标
+                if (y1 > 0) {
+                    y2 = y1 + 10
+                    y3 = y2
+                } else {
+                    y2 = y1 - 10
+                    y3 = y2
+                }
+                if (x1 > 0) {
+                    x2 = x1 + 10
+                    x3 = x1 + 30
+                } else {
+                    x2 = x1 - 10
+                    x3 = x1 - 30
+                }
+                return [
+                    [x1, y1],
+                    [x2, y2],
+                    [x3, y3]
+                ]
+            }
+            hua(){
+                this.context.beginPath();
+                
+                //this.context.moveTo(this.line()[0]);
+                
+            }
+        }
+
+
+
+
+
+
+        new Pie();
+    </script>
+</body>
+
+</html>

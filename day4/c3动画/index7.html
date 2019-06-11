@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .load{
+            width: 200px;
+            height: 200px;
+            background-color: #eee;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+        .one{
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background: mediumorchid;
+            animation: ball 1s linear 0s infinite alternate;
+        }
+        .one:nth-child(2){
+            animation-delay: 0.2s;
+        }
+        .one:nth-child(3){
+            animation-delay: 0.4s;
+        }
+        .one:nth-child(4){
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes ball{
+            0%{
+                height: 20px;
+            }
+            100%{
+                height: 60px;
+            }
+        }
+    </style>
+</head> 
+<body>
+    <div class="load">
+        <div class="one"></div>
+        <div class="one"></div>
+        <div class="one"></div>
+        <div class="one"></div>
+    </div>
+</body>
+</html>

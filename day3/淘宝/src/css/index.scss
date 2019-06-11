@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+@function px2rem($px) {
+    @return $px/37.5px*1rem;
+}
+
+@mixin w_h($w:100%, $h:100%) {
+    width: $w;
+    height: $h;
+}
+
+%juzhong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body,
+html {
+    @include w_h;
+}
+
+.container {
+    @include w_h;
+}
+
+.header {
+    @include w_h(100%, px2rem(37px));
+    background-color: #FF852A;
+    display: flex;
+
+    .logo {
+        flex: 1;
+        background: url('../img/logo.png') no-repeat center;
+        background-size: 100% 100%;
+        transform: scale(.75);
+    }
+
+    .input {
+        flex: 9;
+        @extend %juzhong;
+
+        input {
+            width: 80%;
+            height: 58%;
+            outline: none;
+            border: 0;
+            border: solid 1px #fff;
+            background-color: #FF4E22;
+            border-radius: px2rem(6px);
+        }
+
+        .plancehoder {
+            position: absolute;
+            font-size: 14px;
+            color: #F0E0DC;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+
+    .banner {
+        @include w_h(100%, px2rem(120px));
+
+        .swiper-container,
+        .swiper-wrapper.swiper-slide {
+            @include w_h;
+        }
+
+        img {
+            @include w_h;
+        }
+
+        .swiper-pagination {
+            bottom: 0;
+        }
+    }
+
+    .list {
+        @include w_h(100%, px2rem(160px));
+
+        flex-flow: row wrap;
+        @extend %juzhong;
+
+        .item {
+            width: 20%;
+            height: px2rem(67px);
+            font-size: 14px;
+            @extend %juzhong;
+            flex-flow: column wrap;
+
+            img {
+                @include w_h(70%, 70%);
+            }
+        }
+    }
+
+    .scroll {
+        @include w_h(100%, px2rem(60px));
+        display: flex;
+
+        .left {
+            @include w_h(35%, px2rem(60px));
+            background: url("../img/taobaotoutiao.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .box{
+           
+            @include w_h(65%, px2rem(60px));
+            overflow: hidden;
+        }
+        .right {
+            width: 100%;
+            .one {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: px2rem(2px);
+                p {
+                    @extend %juzhong;
+                    font-size: 13px;
+                    height: px2rem(25px);
+                }
+            }
+        }
+        
+    }
+    .qianggou{
+            width: 100%;
+            margin-top: px2rem(10px);
+            ul{
+                li{
+                    width: 100%;
+                    height: px2rem(115px);
+                    display: flex;
+                    border-bottom: 1px solid #ccc;
+                    img{
+                        width: 25%;
+                        height: px2rem(115px);
+                    }
+                }
+            }
+        }
+}
+
+
+
+
+.footer {
+    @include w_h(100%, px2rem(50px));
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #f8f8f8;
+    background: #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    @extend %juzhong;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    .f-one{
+        flex: 1;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        i{
+            font-size: 28px;
+            color: #5D656B;
+        }
+        span{
+            font-size: 12px;
+            color: #5D656B;
+        }
+    }
+}

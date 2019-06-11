@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="700"></canvas>
+    <script>
+        let context = canvas.getContext('2d');
+        let arr=[];
+        for (let i = 0; i < 36; i++) {
+            let ball = {
+                x: Math.floor(Math.random() * 800),
+                y: Math.floor(Math.random() * 700),
+                r: Math.floor(Math.random() * 40+20),
+                x_speed: Math.floor(Math.random() * 10 - 5),
+                y_speed: Math.floor(Math.random() * 10 - 5),
+            }
+            arr.push(ball);
+        }
+        setInterval(()=>{
+            context.clearRect(0, 0, 800, 700);
+            
+            for(let i=0;i<arr.length;i++){
+                context.beginPath();
+                arr[i].x+=arr[i].x_speed;
+                arr[i].y+=arr[i].y_speed;
+                if(arr[i].x>=800-arr[i].r||arr[i].x<=0){
+                    arr[i].x_speed=-arr[i].x_speed;
+                }
+                if(arr[i].y>=700-arr[i].r||arr[i].y<=0){
+                    arr[i].y_speed=-arr[i].y_speed;
+                }
+                context.arc(arr[i].x, arr[i].y, arr[i].r, 0, Math.PI *2, false);
+                context.fillStyle='green';
+                context.closePath();
+                context.stroke();
+            }
+        },10)
+    </script>
+</body>
+
+</html>

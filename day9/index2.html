@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 出来选择文件 -->
+    <input type="file" class="file">
+    <button>上传</button>
+    <div id="box"></div>
+    <script>
+        let btn=document.querySelector("button");
+        let input=document.querySelector(".file")
+        btn.onclick=()=>{
+            //点击按钮获取文件
+            //当我们点击上传了文件以后 用这个console.dir打印能找到
+            //一个files  这个files的第0项有一个type是我们上传的类型
+           
+            if(input.files[0].type.split("/")[0]=="image"){
+                //这个if条件的意思是指的我们上传的是图片
+                
+                //接下来进行第二步  创建一个new FileReader对象
+                let fr=new FileReader();
+                //利用创建的这个fr对象对文件进行读取操作
+                //readAsDataURL是根据图片的路径进行读取 一半用于读取图片
+                //fr.readAsText(input.files[0]); 这个是读取文本的 例如txt文档
+                //fr.readAsBinaryString(input.files[0])  二进制读取
+                fr.readAsDataURL(input.files[0]);
+
+                fr.onload=function(){
+                    console.log(this.result)//这个是读取之后的结果 路径
+                    box.innerHTML += `<img src=${this.result}>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

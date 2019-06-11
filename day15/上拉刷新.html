@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/bscroll.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 13.333333vw;
+            width: 100%;
+            height: 100%;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        header{
+            width: 100%;
+            height: 1rem;
+            background-color: red;
+        }
+        main{
+            width: 100%;
+            flex: 1;
+            overflow: auto;
+            background-color: #ccc;
+        }
+        ul{
+            background-color: pink;
+        }
+        footer{
+            width: 100%;
+            height: 1.1rem;
+            background-color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <header></header>
+        <main>
+
+            <ul>
+                
+            </ul>
+
+        </main>
+        <footer></footer>
+    </div>
+</body>
+<script>
+    let data=[1,2,3,4,5,6,7,8,9,10,11,12];
+
+    let box=document.querySelector("main ul");
+
+    let str=data.map(item=>{
+        return `<li>${item}</li>`
+    }).join("");
+
+    box.innerHTML=str;
+
+    let scroll=new BScroll("main",{
+        pullDownRefresh:true
+        //配置下拉刷新
+        //直接将pullDownRefresh 设置成true也可以实现
+        //如果不写的话 拉一下又会自动回去
+        //也可以写成对象模式
+        // pullDownRefresh:{
+        //     //下拉到一百的位置才会触发
+        //     threshold:100,
+        //     //然后松手后返回50的位置
+        //     stop:50,
+        // }
+    })
+    console.log(scroll,"对象")
+    console.dir(scroll,"对象")
+
+
+    //写一个分线程然后进行创建数据 让这个主线程接受数据
+
+    let worker=new Worker('./js/creatData.js');
+    //注意引入这个东西以后会导致在浏览器控制台中和下面的行数对应不起来
+    scroll.on("pullingDown",function(){
+        console.log("下拉刷新");
+        //这个事件开始告诉浏览器开始下拉刷新了
+        //然后进行一些数据的请求
+
+        //这里我们可以借用worker进行数据的请求
+        worker.postMessage("请求数据");
+       
+        //主线程接受分线程创造好的数据
+
+        worker.onmessage=function(e){
+            console.log(e.data);
+            if(e.data){
+                //如果数据过来后 加载完毕方法执行
+                scroll.finishPullDown();
+                //在载数据
+                render(e.data)
+            }
+        }
+    })
+
+    function render(data){
+        let oFragmeng = document.createDocumentFragment();
+        //创建一个文档碎片
+        data.forEach(item=>{
+            let li=document.createElement("li");
+            li.innerHTML=item;
+            oFragmeng.appendChild(li);
+        });
+        box.insertBefore(oFragmeng,box.firstElementChild)
+    }
+
+</script>
+</html>

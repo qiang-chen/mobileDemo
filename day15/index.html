@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        html {
+            font-size: 13.333333vw;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            height: 2rem;
+            background: mediumblue;
+        }
+
+        main {
+            flex: 1;
+            overflow: hidden;
+
+        }
+
+        .box {
+            background: pink;
+        }
+
+        footer {
+            width: 100%;
+            height: 1.2rem;
+            background: green;
+        }
+
+        .load {
+            width: 100%;
+            height: 1rem;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .loading {
+            width: 100%;
+            height: 0.6rem;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 2rem;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            头
+        </header>
+        <main>
+            <div class="box">
+                <div class="list">
+                    <div class="item">
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <p>1</p>
+                        <div class="loading">
+                            正在加载中
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer></footer>
+
+    </div>
+    <script src="./js/bscroll.js"></script>
+    <script>
+        var br = new BScroll("main", {
+            pullDownRefresh: {
+                threshold: 100,
+                stop: 50,
+            },
+            pullUpLoad: true
+        })
+        let list = document.querySelector(".item");
+        let work = new Worker("./index.js");
+
+        br.on("pullingDown", function () {
+            console.log("正在下拉");
+            let odiv = document.createElement("div");
+            odiv.classList.add("load");
+            odiv.innerHTML = `正在刷新.....`;
+            document.body.appendChild(odiv);
+            odiv.classList.add("fixed");
+
+            work.postMessage("请求数据")
+
+            work.onmessage = function (e) {
+                let arr = e.data;
+                if (arr.length != 0) {
+                    let load = document.querySelector(".load");
+                    document.body.removeChild(load);
+                    let div = document.createElement("div");
+                    let str = arr.map(item => {
+                        return `<p>${item}</p>`;
+                    }).join("");
+                    div.innerHTML = str;
+                    list.insertBefore(div, list.firstElementChild);
+                    br.finishPullDown();
+                    br.refresh()
+                }
+            }
+        })
+
+        br.on("pullingUp", function () {
+            console.log("上拉加载中");
+            work.postMessage("请求数据");
+            work.onmessage = function (e) {
+                let arr = e.data;
+                if (arr.length != 0) {
+                   let loading=document.querySelector(".loading");
+                   list.removeChild(loading);
+                   let str=arr.map(item=>{
+                       return `<p>${item}</p>`;
+                   }).join("");
+                   list.innerHTML+=str;
+                   let load=`<div class="loading">
+                            正在加载中
+                        </div>`;
+                        list.innerHTML+=load; 
+                        br.finishPullUp(); 
+                        br.refresh()
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

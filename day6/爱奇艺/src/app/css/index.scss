@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    text-decoration: none;
+}
+@function px2rem($px){
+    @return $px/37.5px*1rem;
+}
+@mixin w_h($w:100%,$h:100%){
+    width: $w;
+    height: $h;
+}
+%juzhong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+html,body{
+    @include w_h;
+}
+.container{
+    @include w_h;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    @include w_h(100%,px2rem(84px));
+    .title{
+        @include w_h(100%,px2rem(44px));
+        background-color: #191919;
+        color: #b0b0b0;
+        display: flex;
+        align-items: center;
+        .title-left{
+            @include w_h(px2rem(80px),100%);
+            color: aqua;
+            span{
+                @include w_h;
+                @extend %juzhong;
+            }
+            font-size: px2rem(16px);
+        }
+        .title-right{
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            ul{
+                @include w_h(90%, 100%);
+                font-size: px2rem(16px);
+                display: flex;
+                justify-content: space-around;
+                margin-right: px2rem(8px);
+                li{
+                    width: 25%;
+                    @extend %juzhong;
+                    a{
+                        color: #b0b0b0;
+                    }
+                }
+            }
+        }
+    }
+    .nav{
+        @include w_h(100%,px2rem(40px));
+        display: flex;
+        justify-content: space-around;
+        background: #fafafa;
+        span{
+            flex: 1;
+            @extend %juzhong;
+            font-size: px2rem(18px);
+        }
+        span:nth-child(1){
+            color: green;
+        }
+    }
+}
+main{
+    flex: 1;
+    .input{
+        @include w_h(100%, px2rem(42px));
+        @extend %juzhong;
+        .tet{
+            @include w_h(90%,px2rem(42px));
+            @extend %juzhong;
+            input{
+                @include w_h(80%,70% );
+                outline: none;
+                border: solid green 1px;
+                border-radius: px2rem(15px) 0 0 px2rem(15px);
+            }
+            span{
+                position: relative;
+                @include w_h(20%,70%);
+                border: solid green 1px;
+                background-color: green;
+                border-radius: 0 px2rem(15px) px2rem(15px) 0;
+                display: inline-block;
+                color: #fff;
+                i{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+    }
+    .banner{
+        width: 100%;
+        height: px2rem(172px);
+        overflow: hidden;
+        margin-top: px2rem(2px);
+        position: relative;
+        ul{
+            width: 600%;
+            height: px2rem(172px);
+            display: flex;
+            position: absolute;
+            left: 0;
+           
+            li{
+                width: 100%;
+                height: px2rem(172px);
+                img{
+                    @include w_h;
+                }
+            }
+        }
+    }
+    .list-icon{
+        width: 100%;
+        height: px2rem(94px);
+        position: relative;
+        overflow: hidden;
+        .list{
+            width: px2rem(640px);
+            height: 100%;
+            position: absolute;
+            left: 0;
+            .item{
+                width: px2rem(80px);
+                height: 100%;
+                @extend %juzhong;
+                float: left;
+                font-size: px2rem(14px);
+                flex-direction: column;
+                i{
+                    font-size: px2rem(24px);
+                    margin-bottom: px2rem(5px);
+                }
+                span{
+                    color: #666;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@function px2rem($px) {
+    @return $px/37.5px*1rem;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+header{
+    width: 100%;
+    height: px2rem(50px);
+    background: red;
+}
+main{
+     width: 100%;
+    flex: 1;
+   overflow: auto;
+    .title{
+        width: 100%;
+        height: px2rem(45px);
+        background: blue;
+    }
+    .list{
+        width: 100%;
+        height: 100%;
+        background: #ccc;
+        overflow: auto;
+        .one{
+            width: 100%;
+            height: px2rem(80px);
+            margin-top: px2rem(20px);
+            background: pink;
+        }
+    }
+    .box{
+        width: 100%;
+        height: px2rem(80px);
+        background: maroon;
+    }
+}
+footer{
+    width: 100%;
+    height: px2rem(42px);
+    background: green;
+}

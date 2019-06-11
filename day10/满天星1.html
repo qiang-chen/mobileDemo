@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+
+window.onload = function() {
+ 
+ // 找到画布
+ var canvas = document.getElementById("canvas");
+ // 定义画布的长宽
+ canvas.width = 1000;
+ canvas.height = 800;
+ // 上下文，用于绘制
+ var context = canvas.getContext("2d");
+ 
+
+ /**
+  * [skyStyle description]
+  * @type {[type]}
+  * createRadialGradient是径向渐变填充函数
+  *createRadialGradient的参数
+  *从左至右依次为：
+  * x0,y0,r0:起点的位置（相对canvas画布）和小圆的半径
+  * x1,y1,r1:扩散至的终点的位置和大圆的半径
+  */
+ var skyStyle = context.createRadialGradient(
+     canvas.width/2,canvas.height,0,
+     canvas.width/2,canvas.height,canvas.height);
+ //添加颜色
+ skyStyle.addColorStop(0.0,'#035');
+ skyStyle.addColorStop(1.0,'black');
+ //将skyStyle用于填充展示天空的背景色
+ context.fillStyle = skyStyle;
+ //绘制矩形背景
+ context.fillRect(0,0,canvas.width,canvas.height);
+ 
+ for (var i = 0; i < 200; i++) {
+     var r = Math.random() * 5 + 5;
+     var x = Math.random()*canvas.width;
+     // 让星星都在canvas画布的上面65%的区域显示
+     var y = Math.random()*canvas.height*0.65;
+     var a = Math.random()*360;
+     drawStar(context, x, y, r, a);
+ }
+
+};
+
+// 绘制五角星
+// 改善后的drawStar使用了渐变色radialGrad(径向渐变)让天空的颜色更加逼真
+/**
+* [drawStar description]
+* @param  {[type]} cxt [description] 绘制的上下文环境
+* @param  {[type]} r   [description] 五角星内部小圆的半径
+* @param  {[type]} R   [description] 五角星外部大圆的半径
+* @param  {[type]} x   [description] 五角星在水平方向上的位移
+* @param  {[type]} y   [description] 五角星在竖直方向上的位移
+* @param  {[type]} rot [description] 五角星的旋转角度
+* @return {[type]}     [description]
+*/
+function drawStar(ctx, x, y, R, rot) {
+
+ ctx.save();//与restore()一起出现，防止状态影响其他的绘制
+
+ //图形变换
+ ctx.translate(x,y);//偏移
+ ctx.rotate(rot/180*Math.PI);//旋转
+ ctx.scale(R,R);//缩放比例
+ startPath(ctx);//开始绘制
+ 
+ ctx.fillStyle = "#fb3";//内部填充的颜色
+
+ ctx.fill();//内部填充颜色
+
+ ctx.restore();
+
+ 
+}
+
+/**
+* [startPath description]画星星的具体算法
+* @param  {[type]} ctx [description]
+* @return {[type]}     [description]
+*/
+function startPath (ctx) {
+ ctx.beginPath();
+ for( var i = 0; i < 5; i++) {
+     ctx.lineTo(Math.cos((18 + i*72)/180*Math.PI),
+             -Math.sin((18 + i*72)/180*Math.PI));
+     ctx.lineTo(Math.cos((54 + i*72)/180*Math.PI) * 0.5,
+             -Math.sin((54 + i*72)/180*Math.PI) * 0.5);
+ }
+ ctx.closePath();
+}
+    </script>
+</body>
+</html>

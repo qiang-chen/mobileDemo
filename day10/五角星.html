@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        canvas.width=800;
+        canvas.height=700;
+
+        //画笔
+        let ctx=canvas.getContext("2d");
+
+        for(let i=0;i<5;i++){
+            ctx.lineTo(Math.cos((18+72*i)/180*Math.PI)*300+400,-Math.sin((18+72*i)/180*Math.PI)*300+400);
+            ctx.lineTo(Math.cos((54+72*i)/180*Math.PI)*150+400,-Math.sin((54+72*i)/180*Math.PI)*150+400)
+        }
+        ctx.closePath();
+        ctx.fillStyle="red";
+        ctx.fill();
+        ctx.stroke()
+    </script>
+</body>
+</html>

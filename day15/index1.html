@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let bs = new BScroll("main", {
+            pullUpLoad: true,//上拉
+            pullDownRefresh: true,//下拉
+            //也可以写成对象模式
+            //注意上拉不支持
+            // pullDownRefresh:{
+            //     //下拉到一百的位置才会触发
+            //     threshold:100,
+            //     //然后松手后返回50的位置
+            //     stop:50,
+            // }
+        })
+
+        bs.on("pullingDown", function () {
+            //"pullingUp   上拉"   
+            console.log("下拉刷新");
+            //这个事件开始告诉浏览器开始下拉刷新了
+            //然后进行一些数据的请求
+
+            //当数据请求过来后
+            //告诉浏览器下拉结束
+            bs.finishPullUp();//上拉结束
+            bs.finishPullDown();
+            //DOM结构发生改变后可以刷新下
+            bs.refresh()
+        })
+
+
+    </script>
+</body>
+
+</html>

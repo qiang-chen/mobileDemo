@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="canvas" width="800" height="700"></canvas>
+
+    <script>
+      /**@type{HTMLCanvasElement}*/
+        let canvas=document.querySelector(".canvas");
+        let ctx=canvas.getContext("2d");
+       let w=canvas.width;
+       let h=canvas.height;
+        document.onmousemove=function(e){
+          ctx.clearRect(0,0,w,h);
+         //ctx.arc(e.clientX-10,e.clientY-10,20,0,Math.PI*2,false);
+         //ctx.beginPath();
+         ctx.rect(e.clientX-10,e.clientY-10,20,20);
+         ctx.fillStyle='#fff';
+         ctx.fill();
+         //ctx.closePath();
+        }
+        //加上开始结束后 再加上清除就会只有一个小点在跑  不然光加清除不管用
+    </script>
+</body>
+</html>

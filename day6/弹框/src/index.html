@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./app/css/index.css">
+</head>
+
+<body>
+    <div class="box">
+        <!-- <div class="alert">
+            <div class="alert-title">
+                <h1>PX失败</h1>
+            </div>
+            <div class="alert-content">
+                <p>今日pk次数已用完</p>
+            </div>
+            <div class="alert-bnt">
+                <span>休息一下</span>
+                <span>再次挑战</span>
+            </div>
+        </div> -->
+    </div>
+
+
+    <script src="./app/libs/require.js"></script>
+    <script>
+        require(['./main.js'], function () {
+            require(['index'], function (index) {
+                let dirg=new index({
+                    title: "PX失败",
+                    content: " <p>今日pk次数已用完</p>",
+                    cancelValue: "休息一下",
+                    okValue: "再次挑战",
+                    okCallback: function () {
+                        //确定的时候执行的函数
+                        console.log("点击了确定")
+                    },
+                    cancelCallback: function () {
+                        //取消时候执行的函数
+                        console.log("点击了取消")
+                    },
+                    box: document.querySelector(".box")
+                })
+                //dirg.close()
+            })
+        })
+    </script>
+</body>
+
+</html>

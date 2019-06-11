@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <canvas id="canvas" style="border:1px solid; display:block; margin:50px auto;"></canvas>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("canvas");
+                canvas.width = 800;
+                canvas.height = 800;
+                var cxt = canvas.getContext("2d");                
+                
+                
+                //绘制星星
+                for(var i=0; i<200; i++){
+                    var r = Math.random()*10;
+                    fillStar(r,r*2,Math.random()*800-20,Math.random()*390,cxt);            
+                }
+                
+                //绘制月亮
+                cxt.beginPath();
+                cxt.moveTo(600,100);
+                //外圆
+                cxt.quadraticCurveTo(730,130,670,230);
+                //内圆
+                cxt.quadraticCurveTo(700,140,600,100);
+                cxt.fillStyle = "#c0c0c0";
+                cxt.stroke();
+                cxt.fill();
+                    
+            }
+            function fillStar(r,R,x,y,cxt){
+                cxt.beginPath();
+                for(i=0;i<5;i++){
+                    cxt.lineTo(Math.cos((18+i*72)/180*Math.PI)*R+x,-Math.sin((18+i*72)/180*Math.PI)*R+y);
+                    cxt.lineTo(Math.cos((52+i*72)/180*Math.PI)*r+x,-Math.sin((52+i*72)/180*Math.PI)*r+y);
+                }
+                cxt.fillStyle = "yellow";
+                cxt.closePath();
+                cxt.fill();
+                cxt.stroke();
+            }
+                        
+        </script>
+    </head>
+</html>

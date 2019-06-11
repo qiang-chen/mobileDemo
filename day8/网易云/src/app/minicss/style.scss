@@ -1,0 +1,107 @@
+
+// 引入外部 css 文件
+@import './common.scss';
+
+@mixin w_and_h($w:100%,$h:100%){
+    width: $w;
+    height: $h;
+}
+
+@function px2rem($px){
+    @return $px / 37.5px * 1rem;
+}
+
+@mixin flexBox{
+    display: flex;
+}
+
+%juzhong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    @include w_and_h;
+}
+
+.header {
+    @include w_and_h(100%, 10%);
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    .logo{
+        display: flex;
+        flex: 2;
+        order: 2;
+        justify-content: center;
+        i{
+            font-size: 50px;
+        }
+    }
+    .input_box{
+        flex: 8;
+        order: 1;
+        input {
+            height: px2rem(30px);
+            width: 90%;
+            font-size: 35px;
+            border : 1px solid #ccc;
+            border-radius: 15px;
+            margin-left: px2rem(20px);
+            
+        }
+    }
+}
+.main{
+    @include w_and_h(100%, 80%);
+    overflow: auto;
+    @extend %juzhong;
+    flex-flow: column nowrap;
+    .swiper_container {
+        height: 25%;
+        width: 100%;
+        background:#ccc;
+    }
+    .content {
+        display: flex;
+        height: 75%;
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        overflow: auto;
+        .items{
+            @extend %juzhong;
+            width: 24%;
+            margin-left:px2rem(3px);
+            margin-top: px2rem(5px);
+            height: px2rem(50px);
+            background: red;
+        }
+    }
+}
+.footer{
+    @include w_and_h(100%, 10%);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    .item {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        flex:1;
+        span {
+            margin-top: px2rem(10px);
+        }
+        .iconfont {
+            font-size: 45px;
+        }
+    }
+}
+
+
+

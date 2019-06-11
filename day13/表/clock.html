@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #el {
+            width: 700px;
+            height: 500px;
+        }
+        
+        canvas {
+            border: 1px solid lightcoral
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="el">
+
+    </div>
+    <script>
+        function DrawPie(option) {
+            Object.assign(this, option);
+            console.log(option)
+        }
+
+
+        DrawPie.prototype = {
+            init() {
+                this.creatDom()
+                this.everyGo()
+            },
+            everyGo() {
+                this.clearDraw()
+                this.drawScaleN()
+                this.drawScaleH()
+                this.drawCircle()
+
+                this.drawText()
+                this.getRole()
+                this.drawS()
+                this.drawM()
+                this.drawH()
+                requestAnimationFrame(() => this.everyGo())
+            },
+            clearDraw() {
+                this.context.clearRect(0, 0, this.ctxW, this.ctxH);
+
+            },
+            creatDom() {
+                let $canvas = document.createElement("canvas")
+                let $el = document.querySelector(this.el)
+                $canvas.style.margin = "10px"
+                this.ctxW = $el.clientWidth - 20
+                this.ctxH = $el.clientHeight - 20
+                $canvas.width = this.ctxW
+                $canvas.height = this.ctxH
+                $el.appendChild($canvas)
+                this.context = $canvas.getContext("2d")
+                this.context.translate(350, 250);
+            },
+            drawCircle() {
+                // 
+                this.context.beginPath()
+                this.context.arc(0, 0, 200, 0, 2 * Math.PI)
+                this.context.lineWidth = 3;
+                this.context.strokeStyle = "black"
+                this.context.stroke();
+            },
+            // 绘制分刻度
+            drawScaleN() {
+                for (let i = 0; i <= 60; i++) {
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    this.context.arc(0, 0, 200, 0, 6 * i * Math.PI / 180)
+                    this.context.closePath();
+                    this.context.lineWidth = 1;
+                    this.context.stroke()
+                }
+                this.context.beginPath()
+                this.context.arc(0, 0, 190, 0, 2 * Math.PI)
+                this.context.fillStyle = 'white';
+                this.context.fill();
+            },
+            getPoint() {
+                let r = 200 - 25
+                var data = []
+                for (let i = 0; i < 12; i++) {
+                    let x = Math.cos((i * 30 - 60) * Math.PI / 180) * r
+                    let y = Math.sin((i * 30 - 60) * Math.PI / 180) * r
+                    data.push([x, y])
+                }
+                return data
+            },
+            drawText() {
+                this.context.font = "20px 宋体"
+                this.context.fillStyle = "red"
+                this.context.textBaseline = 'middle';
+                this.context.textAlign = 'center';
+
+
+                this.getPoint().forEach((i, index) => {
+                    this.context.beginPath()
+                    this.context.fillText(index + 1, ...i);
+                });
+            },
+            // 绘制时刻度
+            drawScaleH() {
+                for (let i = 0; i <= 12; i++) {
+                    this.context.beginPath();
+                    this.context.moveTo(0, 0);
+                    this.context.arc(0, 0, 200, 0, 30 * i * Math.PI / 180)
+                    this.context.closePath();
+                    this.context.lineWidth = 2;
+                    this.context.strokeStyle = 'red';
+                    this.context.stroke()
+                }
+                this.context.beginPath()
+                this.context.arc(0, 0, 185, 0, 2 * Math.PI)
+                this.context.fillStyle = 'white';
+                this.context.fill();
+            },
+            getRole() {
+                let current = new Date()
+                let s = current.getSeconds()
+                let m = current.getMinutes()
+                let h = current.getHours()
+
+                this.sR = s / 60 * 360 - 90
+                this.mR = m / 60 * 360 - 90
+                this.hR = h / 12 * 360 + m / 60 * 30 - 90
+            },
+            //绘制秒针
+            drawS() {
+                this.context.beginPath()
+                this.context.moveTo(0, 0)
+                this.context.arc(0, 0, 170, this.sR * Math.PI / 180, this.sR * Math.PI / 180)
+                    // this.context.fillStyle = 'white';
+                this.context.stroke();
+            },
+            drawM() {
+                this.context.beginPath()
+                this.context.moveTo(0, 0)
+                this.context.arc(0, 0, 160, this.mR * Math.PI / 180, this.mR * Math.PI / 180)
+                    // this.context.fillStyle = 'white';
+                this.context.stroke();
+            },
+            drawH() {
+                this.context.beginPath()
+                this.context.moveTo(0, 0)
+                this.context.arc(0, 0, 150, this.hR * Math.PI / 180, this.hR * Math.PI / 180)
+                    // this.context.fillStyle = 'white';
+                this.context.stroke();
+            }
+        }
+
+        var obj = new DrawPie({
+            el: "#el"
+        })
+        obj.init()
+    </script>
+</body>
+
+</html

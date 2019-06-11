@@ -1,0 +1,35 @@
+[
+    {
+        "price":53,
+        "xiaoliang":102,
+        "juli":30
+    },{
+        "price":45,
+        "xiaoliang":152,
+        "juli":50
+    },{
+        "price":15,
+        "xiaoliang":102,
+        "juli":50
+    },{
+        "price":5,
+        "xiaoliang":12,
+        "juli":80
+    },{
+        "price":95,
+        "xiaoliang":182,
+        "juli":80
+    },{
+        "price":95,
+        "xiaoliang":82,
+        "juli":380
+    },{
+        "price":75,
+        "xiaoliang":532,
+        "juli":302
+    },{
+        "price":159,
+        "xiaoliang":132,
+        "juli":35
+    }
+]

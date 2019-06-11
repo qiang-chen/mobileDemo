@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+            border: solid 1px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+       
+    </div>
+    <script>
+        //浏览器外面的图片拖进盒子里
+        box.ondragover=function(e){
+            e.preventDefault();
+        }
+
+        box.ondrop=function(e){
+            e.preventDefault();
+            let file=e.dataTransfer.files[0];
+            //创建对象
+            let fr=new FileReader(file);
+            //读取
+            fr.readAsDataURL(file);
+            fr.onload=function(){
+                
+                box.innerHTML=` <img src="${fr.result}" alt="">`
+            }
+        }
+    </script>
+</body>
+</html>
